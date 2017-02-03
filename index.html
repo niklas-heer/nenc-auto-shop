@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="framework/icon/favicon.ico">
+    <title>Nenc Gebrauchtwagenverkauf</title>
+    <link href="framework/css/bootstrap.min.css" rel="stylesheet">
+    <link href="framework/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <link href="framework/css/jumbotron.css" rel="stylesheet">
+	<link href="framework/css/nenc.css" rel="stylesheet">
+    <script src="framework/js/ie-emulation-modes-warning.js"></script>
+  </head>
+
+  <body>
+
+	<!-- Banner mit Menü & Login -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Nenc Gebrauchtwagenverkauf</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <form class="navbar-form navbar-right">
+            <div class="form-group">
+              <input type="text" placeholder="Benutzer" class="form-control">
+            </div>
+            <div class="form-group">
+              <input type="password" placeholder="Passwort" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-success">Anmelden</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+	<!-- ENDE -->
+	
+	<!-- Filter Formular -->
+		<div class="container FilterContainer">
+			<form class="form-inline marginTop">
+			  <table class="FilterTable" cellspacing="10">
+				<tr>
+					<td>
+						<div class="form-group">
+							<label for="Marke">Marke: </label>
+							<select class="form-control" id="Marke">
+							  <option>Audi</option>
+							  <option>VW</option>
+							  <option>BMW</option>
+							  <option>Porsche</option>
+							  <option>Popel</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label for="Modell">Modell: </label>
+							<select class="form-control" id="Modell">
+							  <option>Golf</option>
+							  <option>A3</option>
+							  <option>i8</option>
+							  <option>911</option>
+							  <option>Astra</option>
+							</select>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div class="form-group">
+							<label for="PreisVon">Preis: von </label>
+							<input type="number" class="form-control" id="PreisVon">
+						</div>
+						<div class="form-group">
+							<label for="PreisBis">Preis: bis </label>
+							<input type="number" class="form-control" id="PreisBis">
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div class="form-group">
+							<label for="ErstzulassungVon">Erstzulassung: von </label>
+							<input type="number" class="form-control" id="ErstzulassungVon">
+						</div>
+						<div class="form-group">
+							<label for="ErstzulassungBis">Erstzulassung: bis </label>
+							<input type="number" class="form-control" id="ErstzulassungBis">
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div class="form-group">
+							<label for="KmVon">Km-Stand: von </label>
+							<input type="number" class="form-control" id="KmVon">
+						</div>
+						<div class="form-group">
+							<label for="KmBis">Km-Stand: bis </label>
+							<input type="number" class="form-control" id="KmBis">
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div class="form-group">
+							<label for="PSVon">PS: von </label>
+							<input type="number" class="form-control" id="PSVon">
+						</div>
+						<div class="form-group">
+							<label for="PSBis">PS: bis </label>
+							<input type="number" class="form-control" id="PSBis">
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<div class="form-group">
+							<label for="Getriebe">Getriebe: </label>
+							<select class="form-control" id="Getriebe">
+							  <option>Manuel</option>
+							  <option>Automatik</option>
+							</select>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<div class="form-group">
+							<label for="Kraftstoff">Kraftstoff: </label>
+							<select class="form-control" id="Kraftstoff">
+							  <option>Benzin</option>
+							  <option>Diesel</option>
+							  <option>Erdgas</option>
+							  <option>Strom</option>
+							</select>
+						</div>
+					</td>
+				</tr>
+			  </table>
+			  <button type="submit" class="btn btn-default">E</button>
+			</form>	
+		</div>
+	<!-- ENDE -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="framework/js/jquery.min.js"><\/script>')</script>
+    <script src="framework/js/bootstrap.min.js"></script>
+    <script src="framework/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>

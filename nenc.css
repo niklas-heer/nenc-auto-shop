@@ -1,0 +1,14 @@
+.FilterTable{
+	
+}
+
+.FilterContainer{
+	margin-top: 2vh;
+	width: 800px;
+	height: 450px;
+	border: 1px outset #FFF;
+	-webkit-box-shadow: 10px 11px 43px 7px rgba(0,0,0,0.6);
+	-moz-box-shadow: 10px 11px 43px 7px rgba(0,0,0,0.6);
+	box-shadow: 10px 11px 43px 7px rgba(0,0,0,0.6);
+	padding: 10px;
+}
