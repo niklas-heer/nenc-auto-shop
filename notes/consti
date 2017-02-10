@@ -1,0 +1,21 @@
+10.02.2017
+
+Erstellung von index.html
+  -> Grundgerüst
+  -> Filterformular
+  
+Erstellung von kontakt.html
+  -> Grundgerüst
+  -> Konatkformular
+  
+Erstellung von nenc.css
+  -> diverse Styleanweisungen
+  
+Erstellung von nenc.js
+  -> Funktionen für ein responsive Menü
+     Menü wird bei einer scrollWidth < 1430 nicht mehr angezeigt, stattdessen wir ein Menüicon angezeigt das bei onClick eine Sidebar 
+     öffnet.
+     
+Dialoge für Anmeldung und Registrieren werden in der Sidebar geöffnet. (Formulare hierfür fehlen noch)
+
+=> Menü befindet sich noch im Aufbau

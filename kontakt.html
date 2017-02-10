@@ -10,7 +10,7 @@
     <title>Nenc Gebrauchtwagenverkauf</title>
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="bootstrap/css/jumbotron.css" rel="stylesheet">
-	<link href="nenc.css" rel="stylesheet">
+	<link href="inbounds/css/nenc.css" rel="stylesheet">
   </head>
 
   <body id="Body" onLoad="onResize();" onResize="onResize();">
@@ -28,13 +28,13 @@
           <a class="navbar-brand" href="index.html">Nenc Gebrauchtwagenverkauf</a>
         </div>
         <div id="MenuHide" onClick="openNav();" class="MenuHide">
-			<img class="MenuHideIcon" src="menu.png">
+			<img class="MenuHideIcon" src="inbounds/img/menu.png">
 		</div>
         <div style="display:none;" id="Banner">
 	        <div id="navbar" class="navbar-collapse collapse">
 	        	<ul class="nav navbar-nav Menu">
-			        <li><a href="#">Link</a></li>
-			        <li class="active"><a href="kontakt.html">Kontakt</a></li>
+			        <li><a href="inserate.html">Inserate</a></li>
+			        <li><a href="verkaufen.html">Verkaufen</a></li>
 			      </ul>
 		          <form class="navbar-form navbar-right Login">
 		            <div class="form-group">
@@ -44,6 +44,7 @@
 		              <input type="password" placeholder="Passwort" class="form-control">
 		            </div>
 		            <button type="submit" class="btn btn-success">Anmelden</button>
+		            <button class="btn btn-success">Registrieren</button>
 		          </form>
 		      </div>
 	      </div>
@@ -54,8 +55,8 @@
 	<!-- Sidebar-->
 		<div id="mySidenav" class="sidenav">
 		  <button class="closebtn" onclick="closeNav()">&times;</button>
-		  <a href="#">Produkte</a>
-		  <a href="kontakt.html">Kontakt</a>
+		  <a href="inserate.html">Inserate</a>
+		  <a href="verkaufen.html">Verkaufen</a>
 		</div>
 	<!-- ENDE -->
 	
@@ -147,6 +148,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="bootstrap/js/jquery.min.js"><\/script>')</script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
-     <script src="nenc.js"></script>
+     <script src="inbounds/js/nenc.js"></script>
   </body>
 </html>

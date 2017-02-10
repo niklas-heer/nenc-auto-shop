@@ -1,10 +1,11 @@
 function onResize(){
-	if(document.getElementById("Body").scrollWidth < 1300){
+	if(document.getElementById("Body").scrollWidth < 1430){
 		document.getElementById("Banner").style.display="none";
 		document.getElementById("MenuHide").style.display="block";
 	}else{
 		document.getElementById("Banner").style.display="block";
 		document.getElementById("MenuHide").style.display="none";
+		closeNav();
 	}
 }
 

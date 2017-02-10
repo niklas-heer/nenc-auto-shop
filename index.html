@@ -10,7 +10,7 @@
     <title>Nenc Gebrauchtwagenverkauf</title>
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="bootstrap/css/jumbotron.css" rel="stylesheet">
-	<link href="nenc.css" rel="stylesheet">
+	<link href="inbounds/css/nenc.css" rel="stylesheet">
   </head>
 
   <body id="Body" onLoad="onResize();" onResize="onResize();">
@@ -28,13 +28,13 @@
           <a class="navbar-brand" href="index.html">Nenc Gebrauchtwagenverkauf</a>
         </div>
         <div id="MenuHide" onClick="openNav();" class="MenuHide">
-			<img class="MenuHideIcon" src="menu.png">
+			<img class="MenuHideIcon" src="inbounds/img/menu.png">
 		</div>
         <div style="display:none;" id="Banner">
 	        <div id="navbar" class="navbar-collapse collapse">
 	        	<ul class="nav navbar-nav Menu">
-			        <li><a href="#">Link</a></li>
-			        <li><a href="kontakt.html">Kontakt</a></li>
+			        <li><a href="inserate.html">Inserate</a></li>
+			        <li><a href="verkaufen.html">Verkaufen</a></li>
 			      </ul>
 		          <form class="navbar-form navbar-right Login">
 		            <div class="form-group">
@@ -44,6 +44,7 @@
 		              <input type="password" placeholder="Passwort" class="form-control">
 		            </div>
 		            <button type="submit" class="btn btn-success">Anmelden</button>
+		          	<a class="btn btn-success" style="font-size: 20px !important;" data-toggle="modal" data-target="#RegistraturDialog">Registrieren</a>
 		          </form>
 		      </div>
 	      </div>
@@ -54,13 +55,57 @@
 	<!-- Sidebar-->
 		<div id="mySidenav" class="sidenav">
 		  <button class="closebtn" onclick="closeNav()">&times;</button>
-		  <a href="#">Produkte</a>
-		  <a href="kontakt.html">Kontakt</a>
+		  <a href="inserate.html">Inserate</a>
+		  <a href="verkaufen.html">Verkaufen</a>
+		  <a class="btn btn-lg" data-toggle="modal" data-target="#LoginDialog">Anmelden</a>
+		  <a class="btn btn-lg" data-toggle="modal" data-target="#RegistraturDialog">Registrieren</a>
 		</div>
 	<!-- ENDE -->
 	
+	<!-- Login Dialog -->
+	<div id="LoginDialog" class="modal fade" role="dialog">
+	  <div class="modal-dialog">
+	
+	    <!-- Modal content-->
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal">&times;</button>
+	        <h4 class="modal-title">Anmeldung</h4>
+	      </div>
+	      <div class="modal-body">
+	        <p>Melde dich an du Noob!!</p>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Anmelden</button>
+	      </div>
+	    </div>
+	
+	  </div>
+	</div>
+	
+	<!-- Registratur Dialog -->
+	<div id="RegistraturDialog" class="modal fade" role="dialog">
+	  <div class="modal-dialog">
+	
+	    <!-- Modal content-->
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal">&times;</button>
+	        <h4 class="modal-title">Registratur</h4>
+	      </div>
+	      <div class="modal-body">
+	        <p>Registriere dich!!</p>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Registrieren</button>
+	      </div>
+	    </div>
+	
+	  </div>
+	</div>
+	
 	<!-- Filter Formular -->
-		<div class="container FilterContainer">
+		<div onClick="closeNav();" class="container FilterContainer">
 			<form class="form-inline marginTop">
 			  <table class="FilterTable">
 				<tr>
@@ -192,6 +237,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="bootstrap/js/jquery.min.js"><\/script>')</script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
-    <script src="nenc.js"></script>
+    <script src="inbounds/js/nenc.js"></script>
   </body>
 </html>
