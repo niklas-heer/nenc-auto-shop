@@ -72,7 +72,7 @@ h3{
 
 .Menu{
 	position: absolute;
-	left: 500px;
+	left: 400px;
 	top: 5px;
 	font-size: 25px;
 }
@@ -134,4 +134,8 @@ h3{
 	right:15px;
 	margin: 15px;
 	z-index: 500;
+}
+
+.btn{
+	text-align: left;
 }
