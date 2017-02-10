@@ -15,7 +15,7 @@
 
   <body id="Body" onLoad="onResize();" onResize="onResize();">
 
-	<!-- Banner mit Men� & Login -->
+	<!-- Banner mit Menü & Login -->
     <nav class="navbar navbar-inverse navbar-fixed-top">
        <div  class="container">
         <div class="navbar-header">
@@ -34,7 +34,7 @@
 	        <div id="navbar" class="navbar-collapse collapse">
 	        	<ul class="nav navbar-nav Menu">
 			        <li><a href="#">Link</a></li>
-			        <li><a href="kontakt.html">Kontakt</a></li>
+			        <li class="active"><a href="kontakt.html">Kontakt</a></li>
 			      </ul>
 		          <form class="navbar-form navbar-right Login">
 		            <div class="form-group">
@@ -60,128 +60,83 @@
 	<!-- ENDE -->
 	
 	<!-- Filter Formular -->
-		<div class="container FilterContainer">
+		<div class="container KontaktContainer">
 			<form class="form-inline marginTop">
 			  <table class="FilterTable">
+			  	<tr>
+			  		<th>
+			  			<h3>Kontaktformular</h3>
+			  		</th>
+			  	</tr>
+				<tr>
+					<td colspan="2">
+						<label for="Anrede">Anrede: </label>
+						<select class="form-control" id="Anrede">
+						  <option>Firma</option>
+						  <option>Herr</option>
+						  <option>Frau</option>
+						</select>
+					</td>
+				</tr>
 				<tr>
 					<td>
 						<div class="form-group">
-							<label for="Marke">Marke: </label>
-							<select class="form-control" id="Marke">
-							  <option>Audi</option>
-							  <option>VW</option>
-							  <option>BMW</option>
-							  <option>Porsche</option>
-							  <option>Popel</option>
-							</select>
+							<label for="Name">Name: </label>
+							<input type="text" class="form-control" id="Name">
 						</div>
 						<div class="form-group">
-							<label for="Modell">Modell: </label>
-							<select class="form-control" id="Modell">
-							  <option>Golf</option>
-							  <option>A3</option>
-							  <option>i8</option>
-							  <option>911</option>
-							  <option>Astra</option>
-							</select>
+							<label for="Vorname">Vorname: </label>
+							<input type="text" class="form-control" id="Vorname">
 						</div>
 					</td>
 				</tr>
 				<tr>
 					<td>
 						<div class="form-group">
-							<label for="PreisVon">Preis: von </label>
-							<input type="number" class="form-control" id="PreisVon">
+							<label for="Strasse">Straße: </label>
+							<input type="text" class="form-control" id="Strasse">
 						</div>
 						<div class="form-group">
-							<label for="PreisBis">Preis: bis </label>
-							<input type="number" class="form-control" id="PreisBis">
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<div class="form-group">
-							<label for="ErstzulassungVon">Erstzulassung: von </label>
-							<input type="number" class="form-control" id="ErstzulassungVon">
-						</div>
-						<div class="form-group">
-							<label for="ErstzulassungBis">Erstzulassung: bis </label>
-							<input type="number" class="form-control" id="ErstzulassungBis">
+							<label for="Hausnummer">Hausnummer: </label>
+							<input type="number" class="form-control" id="Hausnumer">
 						</div>
 					</td>
 				</tr>
 				<tr>
 					<td>
 						<div class="form-group">
-							<label for="KmVon">Km-Stand: von </label>
-							<input type="number" class="form-control" id="KmVon">
+							<label for="PLZ">PLZ: </label>
+							<input type="number" class="form-control" id="PLZ">
 						</div>
 						<div class="form-group">
-							<label for="KmBis">Km-Stand: bis </label>
-							<input type="number" class="form-control" id="KmBis">
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<div class="form-group">
-							<label for="PSVon">PS: von </label>
-							<input type="number" class="form-control" id="PSVon">
-						</div>
-						<div class="form-group">
-							<label for="PSBis">PS: bis </label>
-							<input type="number" class="form-control" id="PSBis">
+							<label for="Ort">Wohnort: </label>
+							<input type="text" class="form-control" id="Wohnort">
 						</div>
 					</td>
 				</tr>
 				<tr>
 					<td>
 						<div class="form-group">
-							<label for="Marke">Marke: </label>
-							<select class="form-control" id="Marke">
-							  <option>Audi</option>
-							  <option>VW</option>
-							  <option>BMW</option>
-							  <option>Porsche</option>
-							  <option>Popel</option>
-							</select>
+							<label for="eMail">E-Mail: </label>
+							<input type="email" class="form-control" id="eMail">
 						</div>
 						<div class="form-group">
-							<label for="Modell">Modell: </label>
-							<select class="form-control" id="Modell">
-							  <option>Golf</option>
-							  <option>A3</option>
-							  <option>i8</option>
-							  <option>911</option>
-							  <option>Astra</option>
-							</select>
+							<label for="Telefon">Telefon: </label>
+							<input type="text" class="form-control" id="Telefon">
 						</div>
 					</td>
 				</tr>
 				<tr>
 					<td>
 						<div class="form-group">
-							<label for="Getriebe">Getriebe: </label>
-							<select class="form-control" id="Getriebe">
-							  <option>Manuel</option>
-							  <option>Automatik</option>
-							</select>
-						</div>
-						<div class="form-group">
-							<label for="Kraftstoff">Kraftstoff: </label>
-							<select class="form-control" id="Kraftstoff">
-							  <option>Benzin</option>
-							  <option>Diesel</option>
-							  <option>Erdgas</option>
-							  <option>Strom</option>
-							</select>
+							<label for="Bemerkung">Bemerkung: </label>
+							<textarea cols="90" rows="5" type="text" class="form-control" id="Bemerkung"></textarea>
 						</div>
 					</td>
 				</tr>
 				<tr>
 					<td class="SubmitButton" colspan="2">
-						<button type="submit" class="btn btn-default">Filtern</button>
+						<button type="submit" class="btn btn-default">Abschicken</button>
 					</td>
 				</tr>
 			  </table>
@@ -192,6 +147,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="bootstrap/js/jquery.min.js"><\/script>')</script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
-    <script src="nenc.js"></script>
+     <script src="nenc.js"></script>
   </body>
 </html>
