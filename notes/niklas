@@ -1,0 +1,10 @@
+2017-02-10
+- lokales Setup fertiggestellt
+- Pair-Programming mit Eddy:
+    - Modell erstellt Auto
+    - Datenbankstruktur für Auto erstellt
+    - Controller für Auto erstellt
+    - Views erstellt
+        - show / detail
+        - create
+        - index / alle
