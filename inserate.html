@@ -33,7 +33,7 @@
         <div style="display:none;" id="Banner">
 	        <div id="navbar" class="navbar-collapse collapse">
 	        	<ul class="nav navbar-nav Menu">
-			        <li><a href="inserate.html">Inserate</a></li>
+			        <li   class="active"><a href="inserate.html">Inserate</a></li>
 			        <li><a href="verkaufen.html">Verkaufen</a></li>
 			      </ul>
 		          <form class="navbar-form navbar-right Login">
@@ -74,29 +74,16 @@
 	      </div>
 	      <div class="modal-body">
 	        <form class="form-inline marginTop">
-	        	<table>
-	        		<tr>
-	        			<td>
-	        				<div class="form-group">
-				              <input type="text" placeholder="Benutzer" name="user" id="user" class="form-control">
-				            </div>
-	        			</td>
-	        			<td>
-	        				<div class="form-group">
-				              <input type="password" placeholder="Passwort" name="pw" id="user" class="form-control">
-				            </div>		
-	        			</td>
-	        		</tr>
-	        		<tr>
-	        			<td class="SubmitButton" colspan="2">
-	        				<button type="button" class="btn btn-default" data-dismiss="modal">Anmelden</button>
-	        			</td>
-	        		</tr>
-	        	</table>
-	            
-	            
-	            
+	            <div class="form-group">
+	              <input type="text" placeholder="Benutzer" class="form-control">
+	            </div>
+	            <div class="form-group">
+	              <input type="password" placeholder="Passwort" class="form-control">
+	            </div>
 	          </form>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Anmelden</button>
 	      </div>
 	    </div>
 	
@@ -117,10 +104,48 @@
 		         <form class="form-inline marginTop">
 				  <table class="FilterTable">
 					<tr>
+						<td colspan="2">
+							<label for="Anrede">Anrede: </label>
+							<select class="form-control" id="Anrede">
+							  <option>Firma</option>
+							  <option>Herr</option>
+							  <option>Frau</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
 						<td>
 							<div class="form-group">
-								<label for="user">Benutzername: </label>
-								<input type="text" class="form-control" id="user">
+								<label for="Name">Name: </label>
+								<input type="text" class="form-control" id="Name">
+							</div>
+							<div class="form-group">
+								<label for="Vorname">Vorname: </label>
+								<input type="text" class="form-control" id="Vorname">
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div class="form-group">
+								<label for="Strasse">Straße: </label>
+								<input type="text" class="form-control" id="Strasse">
+							</div>
+							<div class="form-group">
+								<label for="Hausnummer">Hausnummer: </label>
+								<input type="number" class="form-control" id="Hausnumer">
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div class="form-group">
+								<label for="PLZ">PLZ: </label>
+								<input type="number" class="form-control" id="PLZ">
+							</div>
+							<div class="form-group">
+								<label for="Ort">Wohnort: </label>
+								<input type="text" class="form-control" id="Wohnort">
 							</div>
 						</td>
 					</tr>
@@ -130,61 +155,106 @@
 								<label for="eMail">E-Mail: </label>
 								<input type="email" class="form-control" id="eMail">
 							</div>
-						</td>
-					</tr>
-					<tr>
-						<td>
 							<div class="form-group">
-								<label for="pw">Passwort: </label>
-								<input type="text" class="form-control" id="pw">
+								<label for="Telefon">Telefon: </label>
+								<input type="text" class="form-control" id="Telefon">
 							</div>
 						</td>
 					</tr>
-					<tr>
-			 			<td class="SubmitButton">
-			 				<div class="form-group">
-						        <button type="button" class="btn btn-default" data-dismiss="modal">Registrieren</button>
-						    </div>
-			 			</td>
-			 		</tr>
 				  </table>
 				</form>	
 		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-default" data-dismiss="modal">Registrieren</button>
+		      </div>
 		    </div>
+		
 		  </div>
 		</div>
 	
 	<!-- Filter Formular -->
-		<div onClick="closeNav();" class="container FilterContainer">
-			<form class="form-inline marginTop">
-			  <table class="FilterTable">
-				<tr>
-		 			<td>
-		 				<div class="form-group">
-					        <label for="brand" class="control-label">Marke</label>
-					        <input type="text" class="form-control" id="brand" name="brand">
-					    </div>
-		 			</td>
-		 			<td>
-		 				<div class="form-group">
-					        <label for="model" class="control-label">Modell</label>
-					        <input type="text" class="form-control" id="model" name="model">
-					    </div>
-		 			</td>
-		 			<td>
-		 				<div class="form-group">
-					        <label for="price" class="control-label">Preis</label>
-					        <input type="text" class="form-control" id="price" name="price">
-					    </div>
-		 			</td>
-		 		</tr>
-				<tr>
-					<td class="SubmitButton" colspan="3">
-						<button type="submit" class="btn btn-default">Filtern</button>
-					</td>
-				</tr>
-			  </table>
-			</form>	
+		<div onClick="closeNav();" class="container ListContainer">
+			<ul class="list-group">
+			  <li class="list-group-item">
+			  	<table>
+			  		<tr>
+			  			<td rowspan="3">
+			  				<a class="ListView" href="#"><img class="ListImg" src="inbounds/img/test.jpg"></a>
+			  			</td>
+			  			<td><h4>Cartoon Auto 2.0L Privatverkauf</h4></td>
+			  		</tr>
+			  		<tr>
+			  			<td>
+			  				2000,00€ <!-- Preis -->
+			  				|
+			  				185.000 KM <!-- KM -->
+			  				|
+			  				07/2002 <!-- Erstzulassung mm/yyyy -->
+			  				|
+			  				116 PS <!-- Leistung -->
+			  			</td>
+			  		</tr>
+			  		<tr>
+			  			<td>
+			  				Autohaus Nenc. | Ansbach | Crapstraße 77
+			  			</td>
+			  		</tr>
+			  	</table>
+			  </li>
+			  <li class="list-group-item">
+			  	<table>
+			  		<tr>
+			  			<td rowspan="3">
+			  				<a class="ListView" href="#"><img class="ListImg" src="inbounds/img/test.jpg"></a>
+			  			</td>
+			  			<td><h4>Cartoon Auto 2.0L Privatverkauf</h4></td>
+			  		</tr>
+			  		<tr>
+			  			<td>
+			  				2000,00€ <!-- Preis -->
+			  				|
+			  				185.000 KM <!-- KM -->
+			  				|
+			  				07/2002 <!-- Erstzulassung mm/yyyy -->
+			  				|
+			  				116 PS <!-- Leistung -->
+			  			</td>
+			  		</tr>
+			  		<tr>
+			  			<td>
+			  				Autohaus Nenc. | Ansbach | Crapstraße 77
+			  			</td>
+			  		</tr>
+			  	</table>
+			  </li>
+			  <li class="list-group-item">
+			  	<table>
+			  		<tr>
+			  			<td rowspan="3">
+			  				<a class="ListView" href="#"><img class="ListImg" src="inbounds/img/test.jpg"></a>
+			  			</td>
+			  			<td><h4>Cartoon Auto 2.0L Privatverkauf</h4></td>
+			  		</tr>
+			  		<tr>
+			  			<td>
+			  				2000,00€ <!-- Preis -->
+			  				|
+			  				185.000 KM <!-- KM -->
+			  				|
+			  				07/2002 <!-- Erstzulassung mm/yyyy -->
+			  				|
+			  				116 PS <!-- Leistung -->
+			  			</td>
+			  		</tr>
+			  		<tr>
+			  			<td>
+			  				Autohaus Nenc. | Ansbach | Crapstraße 77
+			  			</td>
+			  		</tr>
+			  	</table>
+			  </li>
+			  
+			</ul>
 		</div>
 	<!-- ENDE -->
 	
