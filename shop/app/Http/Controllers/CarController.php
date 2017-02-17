@@ -32,18 +32,6 @@ class CarController extends Controller
 
         $car->save();
 
-
-
-//        Car::creating([
-//            "titel" => request('titel'),
-//            "description" => request('description'),
-//            "price" => request('price'),
-//            "kw" => request('kw'),
-//            "km" => request('km'),
-//            "color" => request('color'),
-//            "model" => request('model')
-//        ]);
-
         return view('/');
     }
 }
