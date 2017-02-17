@@ -18,10 +18,7 @@ class CreateCarsTable extends Migration
             $table->string('title');
             $table->text('description');
             $table->float('price');
-            $table->integer('kw');
-            $table->integer('km');
-            $table->string('color');
-            $table->string('fueltype');
+            $table->string('brand');
             $table->string('model');
             $table->timestamps();
         });

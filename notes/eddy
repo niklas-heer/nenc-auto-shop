@@ -1,4 +1,10 @@
-2017-02-10
+2017-02-17:
+	- Validierung
+	- Views aufgeteilt und layout erstellt
+	- Bootstrap eingerichtet
+	- Datenmodell vereinfacht
+
+2017-02-10:
 - Pair-Programming mit Niklas:
     - Modell erstellt Auto
     - Datenbankstruktur für Auto erstellt

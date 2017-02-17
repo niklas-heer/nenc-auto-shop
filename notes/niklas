@@ -1,6 +1,10 @@
 2017-02-17:
-- Formular vervollständigen
-- Speicherung der Daten aus dem Formular ermöglichen
+	- Formular vervollständigen
+	- Speicherung der Daten aus dem Formular ermöglichen
+	- Validierung
+	- Views aufgeteilt und layout erstellt
+	- Bootstrap eingerichtet
+	- Datenmodell vereinfacht
 
 2017-02-10:
 - lokales Setup fertiggestellt
