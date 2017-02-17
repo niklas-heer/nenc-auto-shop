@@ -3,8 +3,8 @@
     {{ csrf_field() }}
 
     <div class="form-group">
-        <label for="titel" class="control-label">Titel</label>
-        <input type="text" class="form-control" id="titel" name="titel">
+        <label for="title" class="control-label">Titel</label>
+        <input type="text" class="form-control" id="title" name="title">
     </div>
     <div class="form-group">
         <label for="description" class="control-label">Beschreibung</label>
@@ -25,6 +25,13 @@
     <div class="form-group">
         <label for="color" class="control-label">Farbe</label>
         <input type="text" class="form-control" id="color" name="color">
+    </div>
+    <div class="form-group">
+        <label for="fueltype" class="control-label">Treibstofftyp</label>
+        <select name="fueltype" class="form-control">
+            <option value="Bezin">Bezin</option>
+            <option value="Elektro">Elektro</option>
+        </select>
     </div>
     <div class="form-group">
         <label for="model" class="control-label">Modell</label>
