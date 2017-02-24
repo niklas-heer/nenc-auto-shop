@@ -29,9 +29,10 @@
             <input type="text" class="form-control" id="model" name="model">
         </div>
         
-
-        Foto: {!! Form::file('image') !!}
-
+        <div class="form-group">
+            {!! Form::label('Bild') !!}
+            {!! Form::file('image', null) !!}
+        </div>
 
         <div class="form-group">
             <input type="submit" value="Senden">
