@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Car;
+use App\Image;
 
 class CarController extends Controller
 {
@@ -40,39 +41,39 @@ class CarController extends Controller
         return view('/');
     }
     
-	public function upload($carId)
-	{
-	  // getting all of the post data
-	  $file = array('image' => Input::file('image'));
-	  
-	  // setting up rules
-	  $rules = array('image' => 'required',); //mimes:jpeg,bmp,png and for max size max:10000
-	  
-	  // doing the validation, passing post data, rules and the messages
-	  $validator = Validator::make($file, $rules);
-	  
-	  if ($validator->fails()) {
-		// send back to the page with the input data and errors
-		return Redirect::to('upload')->withInput()->withErrors($validator);
-	  }
-	  else {
-		// checking file is valid.
-		if (Input::file('image')->isValid()) {
-			
-			$uploadPath = 'uploads'; 
-			// getting image extension
-			$extension = Input::file('image')->getClientOriginalExtension();
-			$fileName = date("Ymdis").'.'.$extension;
-			// uploading file to given path
-			Input::file('image')->move($uploadPath, $fileName);
+    public function upload($carId)
+    {
+      // getting all of the post data
+      $file = array('image' => Input::file('image'));
+      
+      // setting up rules
+      $rules = array('image' => 'required',); //mimes:jpeg,bmp,png and for max size max:10000
+      
+      // doing the validation, passing post data, rules and the messages
+      $validator = Validator::make($file, $rules);
+      
+      if ($validator->fails()) {
+        // send back to the page with the input data and errors
+        return Redirect::to('upload')->withInput()->withErrors($validator);
+      }
+      else {
+        // checking file is valid.
+        if (Input::file('image')->isValid()) {
             
-			$image = new Image();
-			$image->setCarId($carId);	
-			$image->setPath( $uploadPath . "/" . $fileName );
-			$image->save();
-						
-			return $image;
-		}
-	  }
-	}
+            $uploadPath = 'uploads'; 
+            // getting image extension
+            $extension = Input::file('image')->getClientOriginalExtension();
+            $fileName = date("Ymdis").'.'.$extension;
+            // uploading file to given path
+            Input::file('image')->move($uploadPath, $fileName);
+            
+            $image = new Image();
+            $image->setCarId($carId);   
+            $image->setPath( $uploadPath . "/" . $fileName );
+            $image->save();
+                        
+            return $image;
+        }
+      }
+    }
 }
