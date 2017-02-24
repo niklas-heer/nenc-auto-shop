@@ -18,6 +18,9 @@ Route::get('/', function () {
 Route::get('/cars', 'CarController@show');
 Route::get('/cars/create', 'CarController@create');
 Route::post('/cars', 'CarController@store');
+Route::get('/test', function () {
+    return view('welcome');
+});
 
 /*
  * /                - homepage
