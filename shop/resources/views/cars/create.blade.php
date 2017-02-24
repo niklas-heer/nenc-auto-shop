@@ -30,8 +30,7 @@
         </div>
         
         <div class="form-group">
-            <label for="image" class="control-label">Bild</label>
-            {!! Form::file('image') !!}
+            Foto: {!! Form::file('image') !!}
         </div>
 
         <div class="form-group">
