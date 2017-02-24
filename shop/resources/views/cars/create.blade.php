@@ -28,6 +28,11 @@
             <label for="model" class="control-label">Modell</label>
             <input type="text" class="form-control" id="model" name="model">
         </div>
+        
+        <div class="form-group">
+            <label for="image" class="control-label">Bild</label>
+            {!! Form::file('image') !!}
+        </div>
 
         <div class="form-group">
             <input type="submit" value="Senden">
