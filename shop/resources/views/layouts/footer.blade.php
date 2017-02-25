@@ -8,8 +8,8 @@
             <a class="FooterButton" href="impressum.html">Impressum</a>
             <a class="FooterButton" href="datenschutz.html">Datenschutz</a>
             <a class="FooterButton" href="haftungsausschluss.html">Haftungsausschluss</a>
-            <a class="FooterButton" href="agb.html">Agb</a>
-            <a class="FooterButton" href="kontakte.html">Kontakte</a>
+            <a class="FooterButton" href="agb.html">AGB</a>
+            <a class="FooterButton" href="kontakt">Kontakt</a>
       </div>
     </nav>
 </footer>

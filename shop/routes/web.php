@@ -21,6 +21,14 @@ Route::get('/showAll', 'CarController@showAll');
 
 Route::post('/cars', 'CarController@store');
 
+/*--Footer--------------------------------------*/
+Route::get('/impressum',            function () { return view('footer.impressum'); });
+Route::get('/datenschutz',          function () { return view('footer.datenschutz'); });
+Route::get('/haftungsausschluss',   function () { return view('footer.haftungsausschluss'); });
+Route::get('/agb',                  function () { return view('footer.agb'); });
+Route::get('/kontakt',              function () { return view('footer.kontakt'); });
+
+
 /*
  * /                - homepage
  * /users           - list all users
