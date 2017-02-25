@@ -276,16 +276,16 @@ h3{
 }
 
 .FooterButton{
+    color: #d4d4d4;
     font-size: 20px;
     text-decoration: none;
-    color: #222222;
     margin-left: 20px;
 }
 
 .FooterButton:hover{
+    color: white;
     font-size: 20px;
     text-decoration: none;
-    color: #222222;
     margin-left: 20px;
     text-decoration: underline;
 }
