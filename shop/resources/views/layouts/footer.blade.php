@@ -5,10 +5,10 @@
           
             <h3>&copy; 2017 NENC</h3>
             
-            <a class="FooterButton" href="impressum.html">Impressum</a>
-            <a class="FooterButton" href="datenschutz.html">Datenschutz</a>
-            <a class="FooterButton" href="haftungsausschluss.html">Haftungsausschluss</a>
-            <a class="FooterButton" href="agb.html">AGB</a>
+            <a class="FooterButton" href="impressum">Impressum</a>
+            <a class="FooterButton" href="datenschutz">Datenschutz</a>
+            <a class="FooterButton" href="haftungsausschluss">Haftungsausschluss</a>
+            <a class="FooterButton" href="agb">AGB</a>
             <a class="FooterButton" href="kontakt">Kontakt</a>
       </div>
     </nav>

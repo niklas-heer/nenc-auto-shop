@@ -71,6 +71,13 @@ table.details tr td:nth-child(odd) {
     text-align: right;
 }
 
+/* ------------------ diverses ----------------------*/
+
+.error {
+    padding:10px;
+    color: red;
+}
+
 /* ------------------ constantin --------------------*/
 
 body{
