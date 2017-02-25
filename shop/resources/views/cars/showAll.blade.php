@@ -8,7 +8,7 @@
 
     @if($allCars->count() > 0)
     
-        @if($errMessage)
+        @if(isset($errMessage))
             <center><p>{!! $errMessage !!} </p></center>
             <center><button onclick="window.location.href='home'">Erneut versuchen</button></center>
             <br>
