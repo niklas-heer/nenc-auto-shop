@@ -10,3 +10,4 @@ Homestead.yaml
 nbproject
 public/uploads
 composer.lock
+npm-debug.log
