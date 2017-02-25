@@ -90,7 +90,5 @@
             </script>
 
         @endforeach
-    @else
-        {{--<center><p>{{ $logMessage }} </p></center>--}}
     @endif
 @stop

@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 use Input;
 use Redirect;
 use Session;
+
 
 use App\Car;
 use App\Image;
@@ -14,7 +16,6 @@ use App\Image;
 class CarController extends Controller
 {
     public $imageCounter = 1;
-    public $logMessage = NULL;
         
     /**
      * Display model with specific ID.
@@ -52,28 +53,55 @@ class CarController extends Controller
      */
     public function filter()
     {
-       
         $this->validate(request(), [
-//            'price' => 'required|numeric',
-            'brand' => 'required|alpha_dash',
-//            'model' => 'required|alpha_dash',
+            'maxPrice'  => 'required|numeric',
+            'brand'     => 'required|alpha_dash',
+            'model'     => 'required|alpha_dash',
         ]);
         
-
-        $matchingCars = Car::where('brand', '=', request('brand'))->get();
+        $errors = false;
+        $logMessage = '';
         
-        if (count($matchingCars)==0) {
-            $this->logMessage .= 'Es wurde kein Auto mit der Marke \''. request('brand') . '\' gefunden.';
+        $checkBrands = Car::where('brand', '=', request('brand'))->get(); 
+        $checkModels = Car::where('model', '=', request('model'))->get(); 
+        $checkPrice  = Car::where('price', '<', request('maxPrice'))->get(); 
+        
+        if (count($checkBrands)==0) {
+            $logMessage .= 'Es wurde kein Auto mit der Marke <b>\''. request('brand') . '\'</b> gefunden.<br>';
+            $errors = true;
         } else {
-            $this->logMessage .= 'Es wurden '. count($matchingCars) .' Autos der Marke \''. request('brand') . '\' gefunden.';
+            $logMessage .= 'Es wurden <b>'. count($checkBrands) .'</b> Autos der Marke <b>\''. request('brand') . '\'</b> gefunden.<br>';
         }
         
-        $allImages = Image::all();
+        if (count($checkModels)==0) {
+            $logMessage .= 'Es wurde kein Auto mit dem Modell <b>\''. request('model') . '\'</b> gefunden.<br>';
+            $errors = true;
+        } else {
+            $logMessage .= 'Es wurden <b>'. count($checkModels) .'</b> Autos mit dem Modell <b>\''. request('model') . '\'</b> gefunden.<br>';
+        }
 
-        return view('cars/showAll')
-                ->with("allCars", $matchingCars)
-                ->with("allImages", $allImages)
-                ->with("logMessage", $this->logMessage);
+        if (count($checkPrice)==0) {
+            $logMessage .= 'Es wurde kein Auto gefunden das unter <b>'. request('maxPrice') .' €</b> kostet.<br>';
+            $errors = true;
+        } else {
+            $logMessage .= 'Es wurden <b>'. count($checkPrice) .'</b> Autos gefunden die unter <b>'. request('maxPrice') .' €</b> kosten.<br>';
+        }
+        
+        if ($errors) {
+            return view('showErrors')->with("logMessage", $logMessage);
+        } else {
+            $allImages = Image::all();
+                        
+            $matchingCars = Car::where('brand', '=', request('brand'))
+                               ->where('model', '=', request('model'))
+                               ->where('price', '<', request('maxPrice'))->get();
+            
+            return view('cars/showAll')
+                    ->with("allCars", $matchingCars)
+                    ->with("allImages", $allImages)
+                    ->with("logMessage", $logMessage);
+        }
+
     }
 
     /**

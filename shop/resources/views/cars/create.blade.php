@@ -6,10 +6,6 @@
 
         {{ csrf_field() }}
 
-        @if(Session::has('error'))
-            <p class="errors">{!! Session::get('error') !!}</p>
-        @endif
-
         <div class="form-group">
             <label for="title" class="control-label">Titel</label>
             <input type="text" class="form-control" id="title" name="title" value="">
