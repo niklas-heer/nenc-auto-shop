@@ -1,3 +1,7 @@
+.container {
+    width: 1920px;
+}
+
 .carObject {
     display: inline-block;
     border: 2px solid #ffdbdb;

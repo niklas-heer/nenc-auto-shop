@@ -93,9 +93,9 @@ class CarController extends Controller
             $errors = true;
         } else {
             if (count($checkPrice)==1) {
-                $logMessage .= '<span>Es wurde <b>'. count($checkPrice) .'</b> Fahrzeug gefunden das unter <b>'. request('maxPrice') .' €</b> kostet.</span><br>';
+                $logMessage .= '<span>Es wurde <b>'. count($checkPrice) .'</b> Fahrzeug gefunden die für unter <b>'. request('maxPrice') .' €</b> angeboten werden.</span><br>';
             } else {
-                $logMessage .= '<span>Es wurde <b>'. count($checkPrice) .'</b> Fahrzeuge gefunden die unter <b>'. request('maxPrice') .' €</b> kosten.</span><br>';
+                $logMessage .= '<span>Es wurden <b>'. count($checkPrice) .'</b> Fahrzeuge gefunden die für unter <b>'. request('maxPrice') .' €</b> angeboten werden.</span><br>';
             }
         }
         
