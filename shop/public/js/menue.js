@@ -9,9 +9,18 @@ function onResize(){
     }
 }
 
+var state=0;
+
 /* Set the width of the side navigation to 250px */
 function openNav() {
-    document.getElementById("mySidenav").style.width = "250px";
+    
+    if (state===0) {
+        document.getElementById("mySidenav").style.width = "250px";
+        state=1;
+    } else {
+        closeNav();
+        state=0;
+    }
 }
 
 /* Set the width of the side navigation to 0 */

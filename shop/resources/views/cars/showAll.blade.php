@@ -20,7 +20,6 @@
                 </div>
             </div>
             
-
             <div class='imagesWrap'>
 
                 @if(isset($allImages))
@@ -38,7 +37,7 @@
                         @foreach($allImages as $image)
                             @if ($car->id === $image->car_id)
 
-                                <a href="{{ $image->path }}">
+                                <a href="/nenc-auto-shop/shop/public/{{ $image->path }}">
                                     <!--<img src="{{ $image->path }}" id="picture_{{ $image->id }}" class="image" alt="{{ $image->path }}">-->
                                 </a>
 
