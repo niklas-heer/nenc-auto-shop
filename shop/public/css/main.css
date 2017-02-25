@@ -194,22 +194,17 @@ h3{
 
  /* The side navigation menu */
 .sidenav {
-    height: 100%; /* 100% Full-height */
-    width: 0; /* 0 width - change this with JavaScript */
-    position: fixed; /* Stay in place */
-    z-index: 10000; /* Stay on top */
+    margin-top: 60px;
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 100;
     top: 0;
     left: 0;
-    background-color: #111; /* Black*/
-    overflow-x: hidden; /* Disable horizontal scroll */
-    padding-top: 60px; /* Place content 60px from the top */
-    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
-}
-
-.sidenav .closebtn{
-    background-color: black;
-    color: white;
-    border: none;
+    background-color: #2d2d2d;
+    overflow-x: hidden;
+    padding-top: 60px;
+    transition: 0.5s;
 }
 
 
@@ -229,12 +224,15 @@ h3{
 }
 
 /* Position and style the close button (top right corner) */
-.sidenav .closebtn {
+.closebtn {
     position: absolute;
     top: 0;
-    right: 25px;
+    right: 10px;
     font-size: 36px;
     margin-left: 50px;
+    color: white;
+    background-color: #2d2d2d;
+    border: 1px;
 }
 
 /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
@@ -250,13 +248,16 @@ h3{
 }
 
 .MenuHide{
-    display:none;
+    transform: scale(0.75);
     position:absolute;
     top: -3px;
     right:15px;
     margin: 15px;
     z-index: 500;
 }
+    .MenuHide:hover{
+        cursor: pointer;
+    }
 
 .btn{
     text-align: left;

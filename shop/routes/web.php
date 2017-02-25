@@ -11,23 +11,21 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('/home', function () { return view('home'); });
+Route::get('/',     function () { return view('welcome'); });
+Route::get('home', function () { return view('home'); });
 
-Route::get('/cars', 'CarController@show');
-Route::get('/cars/create', 'CarController@create');
-Route::get('/showAll', 'CarController@showAll');
-
-Route::post('/cars', 'CarController@store');
+//Route::get('/cars',         'CarController@show');
+Route::get('cars/create',       'CarController@create');
+Route::get('cars/showAll',      'CarController@showAll');
+Route::post('cars/filter',      'CarController@filter');
+Route::post('cars/store',       'CarController@store');
 
 /*--Footer--------------------------------------*/
-Route::get('/impressum',            function () { return view('footer.impressum'); });
-Route::get('/datenschutz',          function () { return view('footer.datenschutz'); });
-Route::get('/haftungsausschluss',   function () { return view('footer.haftungsausschluss'); });
-Route::get('/agb',                  function () { return view('footer.agb'); });
-Route::get('/kontakt',              function () { return view('footer.kontakt'); });
+Route::get('impressum',            function () { return view('footer.impressum'); });
+Route::get('datenschutz',          function () { return view('footer.datenschutz'); });
+Route::get('haftungsausschluss',   function () { return view('footer.haftungsausschluss'); });
+Route::get('agb',                  function () { return view('footer.agb'); });
+Route::get('kontakt',              function () { return view('footer.kontakt'); });
 
 
 /*
