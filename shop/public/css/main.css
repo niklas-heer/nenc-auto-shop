@@ -82,6 +82,10 @@ table.details tr td:nth-child(odd) {
     color: red;
 }
 
+.errorLog {
+    color: red;
+}
+
 /* ------------------ constantin --------------------*/
 
 body{

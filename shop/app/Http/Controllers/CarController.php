@@ -67,35 +67,35 @@ class CarController extends Controller
         $checkPrice  = Car::where('price', '<', request('maxPrice'))->get();
         
         if (count($checkBrands)==0) {
-            $logMessage .= '<p class="error">Es wurde kein Auto mit der Marke <b>\''. request('brand') . '\'</b> gefunden.</p><br>';
+            $logMessage .= '<span class="errorLog">Es wurde kein Fahrzeug mit der Marke <b>\''. request('brand') . '\'</b> gefunden.</span><br>';
             $errors = true;
         } else {
             if (count($checkBrands)==1) {
-                $logMessage .= '<p>Es wurde <b>'. count($checkBrands) .'</b> Auto der Marke <b>\''. request('brand') . '\'</b> gefunden.</p><br>';
+                $logMessage .= '<span>Es wurde <b>'. count($checkBrands) .'</b> Fahrzeug der Marke <b>\''. request('brand') . '\'</b> gefunden.</span><br>';
             } else {
-                $logMessage .= '<p>Es wurden <b>'. count($checkBrands) .'</b> Autos der Marke <b>\''. request('brand') . '\'</b> gefunden.</p><br>';
+                $logMessage .= '<span>Es wurden <b>'. count($checkBrands) .'</b> Fahrzeuge der Marke <b>\''. request('brand') . '\'</b> gefunden.</span><br>';
             }
         }
         
         if (count($checkModels)==0) {
-            $logMessage .= '<p class="error">Es wurde kein Auto mit dem Modell <b>\''. request('model') . '\'</b> gefunden.</p><br>';
+            $logMessage .= '<span class="errorLog">Es wurde kein Fahrzeug mit dem Modell <b>\''. request('model') . '\'</b> gefunden.</span><br>';
             $errors = true;
         } else {
             if (count($checkModels)==1) {
-                $logMessage .= '<p>Es wurde <b>'. count($checkModels) .'</b> Auto mit dem Modell <b>\''. request('model') . '\'</b> gefunden.</p><br>';
+                $logMessage .= '<span>Es wurde <b>'. count($checkModels) .'</b> Fahrzeug mit dem Modell <b>\''. request('model') . '\'</b> gefunden.</span><br>';
             } else {
-                $logMessage .= '<p>Es wurden <b>'. count($checkModels) .'</b> Autos mit dem Modell <b>\''. request('model') . '\'</b> gefunden.</p><br>';
+                $logMessage .= '<span>Es wurden <b>'. count($checkModels) .'</b> Fahrzeuge mit dem Modell <b>\''. request('model') . '\'</b> gefunden.</span><br>';
             }
         }
 
         if (count($checkPrice)==0) {
-            $logMessage .= '<p class="error">Es wurde kein Auto gefunden das unter <b>'. request('maxPrice') .' €</b> kostet.</p><br>';
+            $logMessage .= '<span class="errorLog">Es wurde kein Fahrzeug gefunden das unter <b>'. request('maxPrice') .' €</b> kostet.</span><br>';
             $errors = true;
         } else {
             if (count($checkPrice)==1) {
-                $logMessage .= '<p>Es wurde <b>'. count($checkPrice) .'</b> Auto gefunden das unter <b>'. request('maxPrice') .' €</b> kostet.</p><br>';
+                $logMessage .= '<span>Es wurde <b>'. count($checkPrice) .'</b> Fahrzeug gefunden das unter <b>'. request('maxPrice') .' €</b> kostet.</span><br>';
             } else {
-                $logMessage .= '<p>Es wurde <b>'. count($checkPrice) .'</b> Autos gefunden die unter <b>'. request('maxPrice') .' €</b> kosten.</p><br>';
+                $logMessage .= '<span>Es wurde <b>'. count($checkPrice) .'</b> Fahrzeuge gefunden die unter <b>'. request('maxPrice') .' €</b> kosten.</span><br>';
             }
         }
         
