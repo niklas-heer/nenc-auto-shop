@@ -3,6 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
+use Input;
+use Validator;
+use Redirect;
+use Session;
+
 use App\Car;
 use App\Image;
 
@@ -17,6 +23,46 @@ class CarController extends Controller
     {
         return view('cars.create');
     }
+    
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function showById($id)
+    {
+        $car = Car::find($id);
+        return view('car.show')->with("car", $car);
+    }
+	
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $title
+     * @return \Illuminate\Http\Response
+     */
+    public function showByTitle($title)
+    {
+        $car = Car::where('title', '=', $title)->get();
+
+        return view('car.showByTitle')->with("car", $car);
+    }
+	
+    /**
+     * Display the specified resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function showAll()
+    {
+        $allCars = Car::all();
+        $allImages = Image::all();
+
+        return view('cars.showAll')
+                ->with("allCars", $allCars)
+                ->with("allImages", $allImages);
+    }
 
     public function store()
     {
@@ -25,7 +71,8 @@ class CarController extends Controller
             'description' => 'required|min:10',
             'price' => 'required|numeric',
             'brand' => 'required|alpha',
-            'model' => 'required|alpha_num'
+            'model' => 'required|alpha_dash',
+            'image' => 'required|image|dimensions:min_width=100,min_height=200'
         ]);
 
         $car = new Car();
@@ -38,10 +85,13 @@ class CarController extends Controller
 
         $car->save();
 
-        return view('/');
+        $allCars = Car::all();
+        $image = $this->upload($car->id);
+       
+        return redirect('showAll');
     }
-    
-    public function upload($carId)
+        
+    public function upload($car_id)
     {
       // getting all of the post data
       $file = array('image' => Input::file('image'));
@@ -55,8 +105,9 @@ class CarController extends Controller
       if ($validator->fails()) {
         // send back to the page with the input data and errors
         return Redirect::to('upload')->withInput()->withErrors($validator);
-      }
-      else {
+        
+      } else {
+          
         // checking file is valid.
         if (Input::file('image')->isValid()) {
             
@@ -68,11 +119,19 @@ class CarController extends Controller
             Input::file('image')->move($uploadPath, $fileName);
             
             $image = new Image();
-            $image->setCarId($carId);   
+            $image->setCarId($car_id);   
             $image->setPath( $uploadPath . "/" . $fileName );
             $image->save();
-                        
+            
+            Session::flash('success', 'Upload successfully'); 
+            
             return $image;
+            
+        } else {
+            
+          // sending back with error message.
+          Session::flash('error', 'uploaded file is not valid');
+          return Redirect::to('/');
         }
       }
     }

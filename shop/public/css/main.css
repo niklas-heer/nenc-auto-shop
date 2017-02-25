@@ -1,0 +1,311 @@
+.carObject {
+    display: inline-block;
+    border: 2px solid #D8D8D8;
+    min-height:400px;
+}
+
+.imagesWrap {
+    margin-top: 50px;
+    min-height: 250px;
+    min-width: 352px;
+}
+
+.image {
+    width: 444px;
+    height: 280px;
+    margin:10px;
+    padding-bottom:10px;
+}
+
+.main {
+    padding: 20px;
+    margin-top: 75px;
+}
+
+.carTitleWrap {
+    font-family: fantasy;
+    padding-top: 0px;
+    padding-left: 0px;
+    margin-left: 18px;
+    /*min-height:40px;*/
+}
+
+.carTitle {
+    position: absolute;
+    left: 0px;
+}
+
+.close {
+    position: absolute;
+    margin-right:4px;
+    margin-top:4px;
+
+}
+    .close:hover {
+        color: red;
+    }
+
+.carProperties {
+    font-size: 12px !important;
+    font-family: arial;
+}
+
+.detailsDescription {
+    min-height: 100px;
+    font-size: 12px !important;
+    text-align: center;
+    border: 1px #d8d8d8 solid;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+table.details tr td {
+
+    min-width: 80px;
+    text-align: center;
+}
+
+table.details tr td:nth-child(odd) {
+    font-weight: 600;
+    text-align: right;
+}
+
+/* ------------------ constantin --------------------*/
+
+body{
+    padding-bottom: 70px; 
+}
+
+.FilterTable{
+    
+}
+
+.FilterContainer{
+    margin-top: 120px;
+    width: 740px;
+    border: 1px outset #FFF;
+    -webkit-box-shadow: 10px 11px 43px 7px rgba(0,0,0,0.6);
+    -moz-box-shadow: 10px 11px 43px 7px rgba(0,0,0,0.6);
+    box-shadow: 10px 11px 43px 7px rgba(0,0,0,0.6);
+    padding: 10px;
+}
+
+.ListContainer{
+    margin-top: 120px;
+    width: 850px;
+    border: 1px outset #FFF;
+    -webkit-box-shadow: 10px 11px 43px 7px rgba(0,0,0,0.6);
+    -moz-box-shadow: 10px 11px 43px 7px rgba(0,0,0,0.6);
+    box-shadow: 10px 11px 43px 7px rgba(0,0,0,0.6);
+    padding: 10px;
+}
+
+.DetailContainer{
+    margin-top: 120px;
+    width: 1200px;
+    border: 1px outset #FFF;
+    -webkit-box-shadow: 10px 11px 43px 7px rgba(0,0,0,0.6);
+    -moz-box-shadow: 10px 11px 43px 7px rgba(0,0,0,0.6);
+    box-shadow: 10px 11px 43px 7px rgba(0,0,0,0.6);
+    padding: 10px;
+}
+
+.KontaktContainer{
+    margin-top: 120px;
+    width: 850px;
+    height: 550px;
+    border: 1px outset #FFF;
+    -webkit-box-shadow: 10px 11px 43px 7px rgba(0,0,0,0.6);
+    -moz-box-shadow: 10px 11px 43px 7px rgba(0,0,0,0.6);
+    box-shadow: 10px 11px 43px 7px rgba(0,0,0,0.6);
+    padding: 10px;
+}
+
+.InseratContainer{
+    margin-top: 120px;
+    width: 740px;
+    border: 1px outset #FFF;
+    -webkit-box-shadow: 10px 11px 43px 7px rgba(0,0,0,0.6);
+    -moz-box-shadow: 10px 11px 43px 7px rgba(0,0,0,0.6);
+    box-shadow: 10px 11px 43px 7px rgba(0,0,0,0.6);
+    padding: 10px;
+}
+
+.form-group{
+    padding: 7px;
+}
+
+label{
+    width: 150px;
+}
+
+select{
+    width: 220px !important;
+}
+
+input{
+    width: 220px !important;
+}
+
+.SubmitButton{
+    padding-top: 20px;
+    text-align:center;
+}
+
+button{
+    font-size: 20px !important;
+}
+
+h3{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.Login{
+    position: absolute;
+    right: 7px;
+}
+
+.navbar-inverse{
+    height: 60px;
+}
+
+.navbar-brand{
+    position: absolute;
+    left: 13px;
+    top: 5px;
+    font-size: 25px;
+}
+
+.Menu{
+    position: absolute;
+    left: 400px;
+    top: 5px;
+    font-size: 25px;
+}
+
+ /* The side navigation menu */
+.sidenav {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 10000; /* Stay on top */
+    top: 0;
+    left: 0;
+    background-color: #111; /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+.sidenav .closebtn{
+    background-color: black;
+    color: white;
+    border: none;
+}
+
+
+/* The navigation menu links */
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover, .offcanvas a:focus{
+    color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+    transition: margin-left .5s;
+    padding: 20px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
+
+.MenuHide{
+    display:none;
+    position:absolute;
+    top: -3px;
+    right:15px;
+    margin: 15px;
+    z-index: 500;
+}
+
+.btn{
+    text-align: left;
+}
+
+.modal-dialog-reg{
+    width: 268px !important;
+}
+
+.modal-dialog-anm{
+    width: 505px !important;
+}
+
+.modal-footer{
+    text-align: center;
+}
+
+.FooterContainer{
+    color: white;
+    text-align: center;
+    padding-top: 10px;
+    background-color: black;
+    width: 100%;
+}
+
+.FooterButton{
+    font-size: 20px;
+    text-decoration: none;
+    color: #222222;
+    margin-left: 20px;
+}
+
+.FooterButton:hover{
+    font-size: 20px;
+    text-decoration: none;
+    color: #222222;
+    margin-left: 20px;
+    text-decoration: underline;
+}
+
+.ListImg{
+    width: 250px;
+    height: 150px;
+    margin-right: 25px;
+}
+
+.ListView{
+    text-decoration: none;
+}
+
+.CarouselContainer{
+    width: 600px;
+    height: 400px;
+}
+
+.DetailImg{
+    width: 600px;
+    height: 380px;
+}

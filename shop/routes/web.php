@@ -17,6 +17,8 @@ Route::get('/', function () {
 
 Route::get('/cars', 'CarController@show');
 Route::get('/cars/create', 'CarController@create');
+Route::get('/showAll', 'CarController@showAll');
+
 Route::post('/cars', 'CarController@store');
 
 /*

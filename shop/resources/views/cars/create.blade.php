@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <form method="POST" action="/cars">
+    {!! Form::open(array('action' => 'CarController@store', 'files'=>true)) !!}
 
         {{ csrf_field() }}
 
@@ -18,28 +18,32 @@
             <label for="price" class="control-label">Preis</label>
             <input type="text" class="form-control" id="price" name="price">
         </div>
-
         <div class="form-group">
             <label for="brand" class="control-label">Marke</label>
             <input type="text" class="form-control" id="brand" name="brand">
         </div>
-
         <div class="form-group">
-            <label for="model" class="control-label">Modell</label>
-            <input type="text" class="form-control" id="model" name="model">
+            {!! Form::label('model','Modell',array('id'=>'model','class'=>'')) !!}
+            {!! Form::text('model','',array('id'=>'model','class'=>'', 'placeholder' => 'model')) !!}
         </div>
-        
         <div class="form-group">
             {!! Form::label('Bild') !!}
             {!! Form::file('image', null) !!}
+            
+            <p class="errors">{!!$errors->first('image')!!}</p>
+            
+            @if(Session::has('error'))
+                <p class="errors">{!! Session::get('error') !!}</p>
+            @endif
         </div>
 
+
         <div class="form-group">
-            <input type="submit" value="Senden">
+            {!! Form::submit('Senden') !!}
         </div>
 
         @include('layouts.partials.errors')
 
-    </form>
+    {!! Form::close() !!}
 
 @endsection

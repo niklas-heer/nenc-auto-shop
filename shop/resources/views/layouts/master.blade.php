@@ -7,16 +7,16 @@
 <body>
     @include('layouts.header')
 
-    <div class="jumbotron">
+    <div class="jumbotron main">
         <div class="container">
 
             @yield('content')
 
 
             <br>
-            @include('layouts.footer')
         </div> <!-- /container -->
     </div>
 
+    @include('layouts.footer')
     @include('layouts.foot')
 </body>
