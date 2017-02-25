@@ -1,9 +1,9 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
-            
-            <button type="button" 
-                    class="navbar-toggle collapsed" 
+
+            <button type="button"
+                    class="navbar-toggle collapsed"
                     data-toggle="collapse"
                     data-target="#navbar"
                     aria-expanded="false"
@@ -14,7 +14,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/nenc-auto-shop/shop/public/home">nenc auto shop</a>
+            <a class="navbar-brand" href='{{ url('/home') }}'>nenc auto shop</a>
         </div>
         <div id="MenuHide" onClick="openNav();" class="MenuHide">
             <img class="MenuHideIcon" src="{{ URL::asset("img/menu.png") }}">

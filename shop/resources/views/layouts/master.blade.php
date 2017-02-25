@@ -5,23 +5,22 @@
     @include('layouts.head')
 </head>
 <body>
-    @include('layouts.header')
-    
-
-    
-    <div class="jumbotron main">
-        
-        @include('layouts.partials.sidenav')
-        
-        <div class="container">
-
-            @yield('content')
+@include('layouts.header')
 
 
-            <br>
-        </div> <!-- /container -->
-    </div>
+<div class="jumbotron main">
 
-    @include('layouts.footer')
-    @include('layouts.foot')
+    @include('layouts.partials.sidenav')
+
+    <div class="container">
+
+        @yield('content')
+
+
+        <br>
+    </div> <!-- /container -->
+</div>
+
+@include('layouts.footer')
+@include('layouts.foot')
 </body>

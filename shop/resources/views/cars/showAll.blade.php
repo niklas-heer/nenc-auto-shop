@@ -8,7 +8,7 @@
 
     @if($allCars->count() > 0)
     
-        <center><p>{{ $logMessage }} </p></center>
+        {{--<center><p>{{ $logMessage }} </p></center>--}}
 
         @foreach($allCars as $car)
 
@@ -91,6 +91,6 @@
 
         @endforeach
     @else
-        <center><p>{{ $logMessage }} </p></center>
+        {{--<center><p>{{ $logMessage }} </p></center>--}}
     @endif
 @stop

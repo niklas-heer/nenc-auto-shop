@@ -11,10 +11,10 @@
 |
 */
 
-Route::get('/',             function () { return view('welcome'); });
 Route::get('cars/create',   function () { return view('cars.create'); });
 Route::get('cars/show',     function () { return view('cars.index'); });
 Route::get('home',          function () { return view('filter'); });
+Route::get('/',             function () { return view('filter'); });
 
 Route::get('cars/showAll',          'CarController@showAll');
 Route::get('cars/showbyid/{id}',    'CarController@showById');

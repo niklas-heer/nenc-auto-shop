@@ -19,7 +19,7 @@ class CarController extends Controller
     /**
      * Display model with specific ID.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function showById($id)
@@ -31,11 +31,11 @@ class CarController extends Controller
                 ->with("car", $car)
                 ->with("allImages", $allImages);
     }
-	
+
     /**
      * Display the specified resource.
      *
-     * @param  int  $title
+     * @param  int $title
      * @return \Illuminate\Http\Response
      */
     public function showByTitle($title)
@@ -44,11 +44,11 @@ class CarController extends Controller
 
         return view('car.showByTitle')->with("car", $car);
     }
-    
+
     /**
      * Filter
-     * 
-     * @return \Illuminate\Http\Response
+     *
+     * @return \Illuminate\View\View|\Illuminate\Contracts\View\Factory
      */
     public function filter()
     {
@@ -75,11 +75,11 @@ class CarController extends Controller
                 ->with("allImages", $allImages)
                 ->with("logMessage", $this->logMessage);
     }
-	
+
     /**
      * Display the specified resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\View\View|\Illuminate\Contracts\View\Factory
      */
     public function showAll()
     {
@@ -87,51 +87,55 @@ class CarController extends Controller
         $allImages = Image::all();
 
         return view('cars.showAll')
-                ->with("allCars", $allCars)
-                ->with("allImages", $allImages);
+            ->with("allCars", $allCars)
+            ->with("allImages", $allImages);
     }
 
     /**
-     * 
+     *
      * @param Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {                
+    {
         $this->validate(request(), [
-            'title'         => 'required|max:80',
-            'description'   => 'required|min:10',
-            'price'         => 'required|numeric',
-            'brand'         => 'required|alpha',
-            'model'         => 'required|alpha_dash'
+            'title' => 'required|max:80',
+            'description' => 'required|min:10',
+            'price' => 'required|numeric',
+            'brand' => 'required|alpha',
+            'model' => 'required|alpha_dash'
         ]);
 
         $car = new Car();
 
-        $car->title         = request('title');
-        $car->description   = request('description');
-        $car->price         = request('price');
-        $car->brand         = request('brand');
-        $car->model         = request('model');
+        $car->title = request('title');
+        $car->description = request('description');
+        $car->price = request('price');
+        $car->brand = request('brand');
+        $car->model = request('model');
 
         $car->save();
 
-        $allCars    = Car::all();
-        $allImages  = $request->file('image');       
-        
-        if(!empty($allImages)):
-            foreach($allImages as $image):
+        $allCars = Car::all();
+        $allImages = $request->file('image');
+
+        if (!empty($allImages)):
+            foreach ($allImages as $image):
                 $image = $this->upload($image, $car->id);
             endforeach;
         endif;
-       
+
         return redirect('cars/showAll')
-                ->with("allCars", $allCars)
-                ->with("images", $allImages);
+            ->with("allCars", $allCars)
+            ->with("images", $allImages);
     }
-    
+
     /**
-     * 
+     * Upload an image for a given car.
+     *
+     * @var \Symfony\Component\HttpFoundation\File\UploadedFile $image
+     *
+     * @param $image
      * @param integer $car_id
      * @return Image
      */
@@ -139,28 +143,27 @@ class CarController extends Controller
     {
         // checking file is valid.
         if ($image->isValid()) {
-
-            $uploadPath = 'uploads'; 
+            $uploadPath = 'uploads';
             // getting image extension
             $extension = $image->getClientOriginalExtension();
-            $fileName = date("Ymdis").$this->imageCounter++.'.'.$extension;
+            $fileName = date("Ymdis") . $this->imageCounter++ . '.' . $extension;
             // uploading file to given path
             $image->move($uploadPath, $fileName);
 
             $ImageObj = new Image();
-            $ImageObj->setCarId($car_id);   
-            $ImageObj->setPath( $uploadPath . "/" . $fileName );
+            $ImageObj->setCarId($car_id);
+            $ImageObj->setPath($uploadPath . "/" . $fileName);
             $ImageObj->save();
 
-            Session::flash('success', 'Upload successfully'); 
+            Session::flash('success', 'Upload successfully');
 
             return $ImageObj;
 
         } else {
 
-          // sending back with error message.
-          Session::flash('error', 'uploaded file is not valid');
-          return Redirect::to('/');
+            // sending back with error message.
+            Session::flash('error', 'uploaded file is not valid');
+            return Redirect::to('/');
         }
     }
 }

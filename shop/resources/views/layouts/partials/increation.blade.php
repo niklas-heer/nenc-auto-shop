@@ -4,14 +4,14 @@
 </div>
 
 <script>
-    var timer=2;
-    
-    setInterval(function(){
+    var timer = 2;
+
+    setInterval(function () {
         timer = timer - 1;
         document.getElementById("zeit").innerHTML = timer;
-        
-        if (timer===0) window.location.href = "home";
-        
-    },1000);
-   
+
+        if (timer === 0) window.location.href = "home";
+
+    }, 1000);
+
 </script>
