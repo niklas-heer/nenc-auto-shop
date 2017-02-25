@@ -14,6 +14,7 @@
 Route::get('cars/create',   function () { return view('cars.create'); });
 Route::get('cars/show',     function () { return view('cars.index'); });
 Route::get('home',          function () { return view('filter'); });
+Route::get('login',             function () { return view('login'); });
 Route::get('/',             function () { return view('filter'); });
 
 Route::get('cars/showAll',          'CarController@showAll');
