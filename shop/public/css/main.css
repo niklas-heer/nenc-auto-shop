@@ -1,6 +1,6 @@
 .carObject {
     display: inline-block;
-    border: 2px solid #D8D8D8;
+    border: 2px solid #ffdbdb;
     min-height:400px;
 }
 
@@ -58,6 +58,10 @@
     padding-top: 10px;
     padding-left: 10px;
     padding-right: 10px;
+}
+
+p.detailsDescription {
+    margin-bottom: 0px;
 }
 
 table.details tr td {

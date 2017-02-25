@@ -8,12 +8,15 @@ use Input;
 use Validator;
 use Redirect;
 use Session;
+use Storage;
 
 use App\Car;
 use App\Image;
 
 class CarController extends Controller
 {
+    public $imageCounter = 1;
+    
     public function show()
     {
         return view('cars.index');
@@ -48,6 +51,38 @@ class CarController extends Controller
 
         return view('car.showByTitle')->with("car", $car);
     }
+    
+    /**
+     * Filter
+     *
+     * @param  int  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function filter()
+    {
+        $this->validate(request(), [
+            'price' => 'required|numeric',
+            'brand' => 'required|alpha',
+            'model' => 'required|alpha_dash',
+        ]);
+        
+        if ($this->validate->fails()) {
+            
+          Session::flash('error', 'uploaded file is not valid');
+          return Redirect::to('/');
+          
+        } else {
+            echo $this->request->price;
+            die;
+
+            $matchingCars = Car::where('model', '=', $this->request->model)->get();
+            $allImages    = Image::all();
+
+            return view('cars.showAll')
+                    ->with("allCars", $matchingCars)
+                    ->with("allImages", $allImages);
+        }
+    }
 	
     /**
      * Display the specified resource.
@@ -64,75 +99,76 @@ class CarController extends Controller
                 ->with("allImages", $allImages);
     }
 
-    public function store()
-    {
+    /**
+     * 
+     * @param Request $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {                
         $this->validate(request(), [
-            'title' => 'required|max:80',
-            'description' => 'required|min:10',
-            'price' => 'required|numeric',
-            'brand' => 'required|alpha',
-            'model' => 'required|alpha_dash',
-            'image' => 'required|image|dimensions:min_width=100,min_height=200'
+            'title'         => 'required|max:80',
+            'description'   => 'required|min:10',
+            'price'         => 'required|numeric',
+            'brand'         => 'required|alpha',
+            'model'         => 'required|alpha_dash'
         ]);
 
         $car = new Car();
 
-        $car->title = request('title');
-        $car->description = request('description');
-        $car->price = request('price');
-        $car->brand = request('brand');
-        $car->model = request('model');
+        $car->title         = request('title');
+        $car->description   = request('description');
+        $car->price         = request('price');
+        $car->brand         = request('brand');
+        $car->model         = request('model');
 
         $car->save();
 
-        $allCars = Car::all();
-        $image = $this->upload($car->id);
+        $allCars    = Car::all();
+        $allImages  = $request->file('image');       
+        
+        if(!empty($allImages)):
+            foreach($allImages as $image):
+                $image = $this->upload($image, $car->id);
+            endforeach;
+        endif;
        
-        return redirect('showAll');
+        return redirect('cars/showAll')
+                ->with("allCars", $allCars)
+                ->with("images", $allImages);
     }
-        
-    public function upload($car_id)
+    
+    /**
+     * 
+     * @param integer $car_id
+     * @return Image
+     */
+    public function upload($image, $car_id)
     {
-      // getting all of the post data
-      $file = array('image' => Input::file('image'));
-      
-      // setting up rules
-      $rules = array('image' => 'required',); //mimes:jpeg,bmp,png and for max size max:10000
-      
-      // doing the validation, passing post data, rules and the messages
-      $validator = Validator::make($file, $rules);
-      
-      if ($validator->fails()) {
-        // send back to the page with the input data and errors
-        return Redirect::to('upload')->withInput()->withErrors($validator);
-        
-      } else {
-          
         // checking file is valid.
-        if (Input::file('image')->isValid()) {
-            
+        if ($image->isValid()) {
+
             $uploadPath = 'uploads'; 
             // getting image extension
-            $extension = Input::file('image')->getClientOriginalExtension();
-            $fileName = date("Ymdis").'.'.$extension;
+            $extension = $image->getClientOriginalExtension();
+            $fileName = date("Ymdis").$this->imageCounter++.'.'.$extension;
             // uploading file to given path
-            Input::file('image')->move($uploadPath, $fileName);
-            
-            $image = new Image();
-            $image->setCarId($car_id);   
-            $image->setPath( $uploadPath . "/" . $fileName );
-            $image->save();
-            
+            $image->move($uploadPath, $fileName);
+
+            $ImageObj = new Image();
+            $ImageObj->setCarId($car_id);   
+            $ImageObj->setPath( $uploadPath . "/" . $fileName );
+            $ImageObj->save();
+
             Session::flash('success', 'Upload successfully'); 
-            
-            return $image;
-            
+
+            return $ImageObj;
+
         } else {
-            
+
           // sending back with error message.
           Session::flash('error', 'uploaded file is not valid');
           return Redirect::to('/');
         }
-      }
     }
 }

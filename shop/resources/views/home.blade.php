@@ -3,8 +3,16 @@
 @section('content')
 
     <div onClick="closeNav();" class="container FilterContainer">
-        <form class="form-inline marginTop">
-          <table class="FilterTable">
+        
+        <form class="form-inline marginTop" method="POST" action="filter" id="filter">
+            
+            {{ csrf_field() }}
+            
+            @if(Session::has('error'))
+                <p class="errors">{!! Session::get('error') !!}</p>
+            @endif
+            
+            <table class="FilterTable">
                 <tr>
                     <td>
                         <div class="form-group">
@@ -33,4 +41,5 @@
              </table>
         </form>	
     </div>
+
 @stop

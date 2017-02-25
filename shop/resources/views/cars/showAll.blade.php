@@ -37,9 +37,7 @@
                         @foreach($allImages as $image)
                             @if ($car->id === $image->car_id)
 
-                                <a href="/nenc-auto-shop/shop/public/{{ $image->path }}">
-                                    <!--<img src="{{ $image->path }}" id="picture_{{ $image->id }}" class="image" alt="{{ $image->path }}">-->
-                                </a>
+                                <a href="/nenc-auto-shop/shop/public/{{ $image->path }}"></a>
 
                             @endif
                         @endforeach
