@@ -4,7 +4,7 @@
 
     <div onClick="closeNav();" class="container FilterContainer">
         
-        <form class="form-inline marginTop" method="POST" action="filter" id="filter">
+        <form class="form-inline marginTop" method="post" action="post_filter" id="filter">
             
             {{ csrf_field() }}
             
@@ -20,7 +20,7 @@
                             <input type="text" class="form-control" id="brand" name="brand">
                         </div>
                     </td>
-                    <td>
+<!--                    <td>
                         <div class="form-group">
                             <label for="model" class="control-label">Modell</label>
                             <input type="text" class="form-control" id="model" name="model">
@@ -31,7 +31,7 @@
                             <label for="price" class="control-label">Preis</label>
                             <input type="text" class="form-control" id="price" name="price">
                         </div>
-                    </td>
+                    </td>-->
                 </tr>
                 <tr>
                     <td class="SubmitButton" colspan="3">

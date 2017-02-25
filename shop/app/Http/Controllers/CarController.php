@@ -5,10 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use Input;
-use Validator;
 use Redirect;
 use Session;
-use Storage;
 
 use App\Car;
 use App\Image;
@@ -16,27 +14,22 @@ use App\Image;
 class CarController extends Controller
 {
     public $imageCounter = 1;
-    
-    public function show()
-    {
-        return view('cars.index');
-    }
-
-    public function create()
-    {
-        return view('cars.create');
-    }
-    
+    public $logMessage = NULL;
+        
     /**
-     * Display the specified resource.
+     * Display model with specific ID.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function showById($id)
     {
+        $allImages = Image::all();
         $car = Car::find($id);
-        return view('car.show')->with("car", $car);
+        
+        return view('cars.show')
+                ->with("car", $car)
+                ->with("allImages", $allImages);
     }
 	
     /**
@@ -54,34 +47,33 @@ class CarController extends Controller
     
     /**
      * Filter
-     *
-     * @param  int  $request
+     * 
      * @return \Illuminate\Http\Response
      */
     public function filter()
     {
+       
         $this->validate(request(), [
-            'price' => 'required|numeric',
-            'brand' => 'required|alpha',
-            'model' => 'required|alpha_dash',
+//            'price' => 'required|numeric',
+            'brand' => 'required|alpha_dash',
+//            'model' => 'required|alpha_dash',
         ]);
         
-        if ($this->validate->fails()) {
-            
-          Session::flash('error', 'uploaded file is not valid');
-          return Redirect::to('/');
-          
+
+        $matchingCars = Car::where('brand', '=', request('brand'))->get();
+        
+        if (count($matchingCars)==0) {
+            $this->logMessage .= 'Es wurde kein Auto mit der Marke \''. request('brand') . '\' gefunden.';
         } else {
-            echo $this->request->price;
-            die;
-
-            $matchingCars = Car::where('model', '=', $this->request->model)->get();
-            $allImages    = Image::all();
-
-            return view('cars.showAll')
-                    ->with("allCars", $matchingCars)
-                    ->with("allImages", $allImages);
+            $this->logMessage .= 'Es wurden '. count($matchingCars) .' Autos der Marke \''. request('brand') . '\' gefunden.';
         }
+        
+        $allImages = Image::all();
+
+        return view('cars/showAll')
+                ->with("allCars", $matchingCars)
+                ->with("allImages", $allImages)
+                ->with("logMessage", $this->logMessage);
     }
 	
     /**

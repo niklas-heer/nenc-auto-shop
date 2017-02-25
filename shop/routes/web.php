@@ -11,13 +11,15 @@
 |
 */
 
-Route::get('/',    function () { return view('welcome'); });
-Route::get('home', function () { return view('home'); });
+Route::get('/',             function () { return view('welcome'); });
+Route::get('cars/create',   function () { return view('cars.create'); });
+Route::get('cars/show',     function () { return view('cars.index'); });
+Route::get('home',          function () { return view('filter'); });
 
-Route::get('cars/create',  'CarController@create');
-Route::get('cars/showAll', 'CarController@showAll');
-Route::post('cars/filter', 'CarController@filter');
-Route::post('cars/store',  'CarController@store');
+Route::get('cars/showAll',          'CarController@showAll');
+Route::get('cars/showbyid/{id}',    'CarController@showById');
+Route::post('post_filter',          'CarController@filter');
+Route::post('cars/store',           'CarController@store');
 
 /*--Footer--------------------------------------*/
 Route::get('impressum',            function () { return view('footer.impressum'); });
