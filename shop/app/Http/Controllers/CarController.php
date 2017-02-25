@@ -64,42 +64,62 @@ class CarController extends Controller
         
         $checkBrands = Car::where('brand', '=', request('brand'))->get(); 
         $checkModels = Car::where('model', '=', request('model'))->get(); 
-        $checkPrice  = Car::where('price', '<', request('maxPrice'))->get(); 
+        $checkPrice  = Car::where('price', '<', request('maxPrice'))->get();
         
         if (count($checkBrands)==0) {
-            $logMessage .= 'Es wurde kein Auto mit der Marke <b>\''. request('brand') . '\'</b> gefunden.<br>';
+            $logMessage .= '<p class="error">Es wurde kein Auto mit der Marke <b>\''. request('brand') . '\'</b> gefunden.</p><br>';
             $errors = true;
         } else {
-            $logMessage .= 'Es wurden <b>'. count($checkBrands) .'</b> Autos der Marke <b>\''. request('brand') . '\'</b> gefunden.<br>';
+            if (count($checkBrands)==1) {
+                $logMessage .= '<p>Es wurde <b>'. count($checkBrands) .'</b> Auto der Marke <b>\''. request('brand') . '\'</b> gefunden.</p><br>';
+            } else {
+                $logMessage .= '<p>Es wurden <b>'. count($checkBrands) .'</b> Autos der Marke <b>\''. request('brand') . '\'</b> gefunden.</p><br>';
+            }
         }
         
         if (count($checkModels)==0) {
-            $logMessage .= 'Es wurde kein Auto mit dem Modell <b>\''. request('model') . '\'</b> gefunden.<br>';
+            $logMessage .= '<p class="error">Es wurde kein Auto mit dem Modell <b>\''. request('model') . '\'</b> gefunden.</p><br>';
             $errors = true;
         } else {
-            $logMessage .= 'Es wurden <b>'. count($checkModels) .'</b> Autos mit dem Modell <b>\''. request('model') . '\'</b> gefunden.<br>';
+            if (count($checkModels)==1) {
+                $logMessage .= '<p>Es wurde <b>'. count($checkModels) .'</b> Auto mit dem Modell <b>\''. request('model') . '\'</b> gefunden.</p><br>';
+            } else {
+                $logMessage .= '<p>Es wurden <b>'. count($checkModels) .'</b> Autos mit dem Modell <b>\''. request('model') . '\'</b> gefunden.</p><br>';
+            }
         }
 
         if (count($checkPrice)==0) {
-            $logMessage .= 'Es wurde kein Auto gefunden das unter <b>'. request('maxPrice') .' €</b> kostet.<br>';
+            $logMessage .= '<p class="error">Es wurde kein Auto gefunden das unter <b>'. request('maxPrice') .' €</b> kostet.</p><br>';
             $errors = true;
         } else {
-            $logMessage .= 'Es wurden <b>'. count($checkPrice) .'</b> Autos gefunden die unter <b>'. request('maxPrice') .' €</b> kosten.<br>';
+            if (count($checkPrice)==1) {
+                $logMessage .= '<p>Es wurde <b>'. count($checkPrice) .'</b> Auto gefunden das unter <b>'. request('maxPrice') .' €</b> kostet.</p><br>';
+            } else {
+                $logMessage .= '<p>Es wurde <b>'. count($checkPrice) .'</b> Autos gefunden die unter <b>'. request('maxPrice') .' €</b> kosten.</p><br>';
+            }
         }
         
-        if ($errors) {
-            return view('showErrors')->with("logMessage", $logMessage);
-        } else {
-            $allImages = Image::all();
-                        
+        $allImages = Image::all();
+
+        $matchingCars = Car::where('brand', '=', request('brand'))
+                           ->where('model', '=', request('model'))
+                           ->where('price', '<', request('maxPrice'))->get();
+        
+        
+        if ($errors || count($matchingCars)==0) {
+            //Filter hat kein Match gefunden, nochmal versuch:
             $matchingCars = Car::where('brand', '=', request('brand'))
-                               ->where('model', '=', request('model'))
-                               ->where('price', '<', request('maxPrice'))->get();
-            
-            return view('cars/showAll')
-                    ->with("allCars", $matchingCars)
-                    ->with("allImages", $allImages)
-                    ->with("logMessage", $logMessage);
+                               ->orwhere('model', '=', request('model'))
+                               ->orwhere('price', '<', request('maxPrice'))->get();
+        
+            return view('cars/showAll')->with("allCars", $matchingCars)
+                                       ->with("allImages", $allImages)
+                                       ->with("errMessage", $logMessage);
+        } else {
+
+            return view('cars/showAll')->with("allCars", $matchingCars)
+                                       ->with("allImages", $allImages)
+                                       ->with("logMessage", $logMessage);
         }
 
     }

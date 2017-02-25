@@ -8,7 +8,12 @@
 
     @if($allCars->count() > 0)
     
-        {{--<center><p>{{ $logMessage }} </p></center>--}}
+        @if($errMessage)
+            <center><p>{!! $errMessage !!} </p></center>
+            <center><button onclick="window.location.href='home'">Erneut versuchen</button></center>
+            <br>
+            <center><p>Folgende Fahrzeuge haben einigen Ihrer Suchkriterien entsprochen:</p></center>
+        @endif
 
         @foreach($allCars as $car)
 
