@@ -1,6 +1,6 @@
 <footer>
     
-    <nav class="navbar navbar-default navbar-fixed-bottom">
+    <nav class="navbar navbar-fixed-bottom">
       <div class="container FooterContainer">
           
             <h3>&copy; 2017 NENC</h3>

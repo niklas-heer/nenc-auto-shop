@@ -6,8 +6,13 @@
 </head>
 <body>
     @include('layouts.header')
+    
 
+    
     <div class="jumbotron main">
+        
+        @include('layouts.partials.sidenav')
+        
         <div class="container">
 
             @yield('content')

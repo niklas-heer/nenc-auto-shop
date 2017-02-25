@@ -4,3 +4,4 @@
 <script src="{{ asset('vendor/jquery-3.1.1.min.js') }}"></script>
 <script src="{{ asset('vendor/bootstrap/js/bootstrap.min.js') }}"></script>
 <script src='{{ URL::asset("js/main.js") }}'></script>
+<script src='{{ URL::asset("js/menue.js") }}'></script>
