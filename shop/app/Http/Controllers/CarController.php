@@ -55,7 +55,7 @@ class CarController extends Controller
     {
         $this->validate(request(), [
             'maxPrice'  => 'required|numeric',
-            'brand'     => 'required|alpha_dash',
+            'brand'     => 'required|regex:/^[\pL\s\-]+$/u',    //only allows letters, hyphens and spaces explicitly
             'model'     => 'required|alpha_dash',
         ]);
         
@@ -108,6 +108,7 @@ class CarController extends Controller
         
         if ($errors || count($matchingCars)==0) {
             
+            //Mindestens ein Suchkriterium hat übereingestimmt
             if (count($checkBrands)>0 || count($checkModels)>0 || count($checkPrice)>0) {
                 
                 //Der Gesamtfilter hat kein Match gefunden, ähnliche Ergebnisse returnen:
@@ -118,6 +119,8 @@ class CarController extends Controller
                 return view('cars/showAll')->with("allCars", $matchingCars)
                                            ->with("allImages", $allImages)
                                            ->with("errMessage", $logMessage);
+                
+            //Kein Suchkriterium hat übereingestimmt
             } else {
                 return view('showErrors')->with("logMessage", $logMessage);
             }
@@ -157,8 +160,8 @@ class CarController extends Controller
             'title' => 'required|max:80',
             'description' => 'required|min:10',
             'price' => 'required|numeric',
-            'brand' => 'required|alpha',
-            'model' => 'required|alpha_dash'
+            'brand' => 'required|regex:/^[\pL\s\-]+$/u',    //only allows letters, hyphens and spaces explicitly
+            'model' => 'required|regex:/^[\pL\s\-]+$/u',    //only allows letters, hyphens and spaces explicitly
         ]);
 
         $car = new Car();
