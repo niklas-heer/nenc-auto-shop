@@ -1,11 +1,19 @@
 .container {
-    width: 1920px;
+    width: 1820px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.innerContainer {
+    padding-left: 6%;
 }
 
 .carObject {
     display: inline-block;
     border: 2px solid #ffdbdb;
     min-height:400px;
+    min-width: 300px;
+    width: 380px
 }
 
 .imagesWrap {
@@ -15,7 +23,7 @@
 }
 
 .image {
-    width: 444px;
+    /*width: 444px;*/
     height: 280px;
     margin:10px;
     padding-bottom:10px;
@@ -197,7 +205,7 @@ table.details tr td:nth-child(odd) {
 /* ------------------ footer ----------------------------*/
 
 .FooterButtonWrap {
-    margin-bottom:20px;
+
 }
 
 /* ENDE--------------- footer ---------------------------*/
@@ -424,12 +432,19 @@ h3{
     text-align: center;
 }
 
+.FooterTitle {
+    margin: 0px;
+    padding: 10px;
+}
+
 .FooterContainer{
     color: white;
     text-align: center;
     padding-top: 10px;
     background-color: black;
     width: 100%;
+    bottom: 0px;
+    padding-bottom: 10px;
 }
 
 .FooterButton{

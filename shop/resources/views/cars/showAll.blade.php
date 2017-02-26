@@ -4,6 +4,10 @@
 
 @section('content')
 
+<div class="container">
+    <div class="innerContainer">
+        
+    
     <script src='{{ URL::asset("blueimp-gallery-2.23.0/js/blueimp-gallery.min.js") }}'></script>
 
     @if($allCars->count() > 0)
@@ -96,4 +100,6 @@
 
         @endforeach
     @endif
+    </div>
+</div>
 @stop

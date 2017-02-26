@@ -1,9 +1,9 @@
 <footer>
 
     <nav class="navbar navbar-fixed-bottom">
-        <div class="container FooterContainer">
+        <div class="FooterContainer">
 
-            <h3>&copy; 2017 NENC</h3>
+            <h3 class="FooterTitle">&copy; 2017 NENC</h3>
 
             <div class="FooterButtonWrap">
                 <a class="FooterButton animatedLink" href='{{ url('/impressum') }}'>Impressum</a>

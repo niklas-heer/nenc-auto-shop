@@ -8,15 +8,13 @@
     @include('layouts.partials.header')
     
     <div class="jumbotron main">
-        <div class='container'>
 
-            @include('layouts.partials.sidenav')
-
-        </div>
-        
+        @include('layouts.partials.sidenav')
         @yield('content')
-    </div>
+        
+    
 
     @include('layouts.partials.footer')
     @include('layouts.partials.foot')
+    </div>
 </body>
