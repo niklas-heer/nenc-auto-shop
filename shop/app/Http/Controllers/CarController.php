@@ -76,7 +76,7 @@ class CarController extends Controller
                 $logMessage .= '<span>Es wurden <b>'. count($checkBrands) .'</b> Fahrzeuge der Marke <b>\''. request('brand') . '\'</b> gefunden.</span><br>';
             }
         }
-        
+                
         if (count($checkModels)==0) {
             $logMessage .= '<span class="errorLog">Es wurde kein Fahrzeug mit dem Modell <b>\''. request('model') . '\'</b> gefunden.</span><br>';
             $errors = true;
@@ -107,14 +107,21 @@ class CarController extends Controller
         
         
         if ($errors || count($matchingCars)==0) {
-            //Filter hat kein Match gefunden, nochmal versuch:
-            $matchingCars = Car::where('brand', '=', request('brand'))
-                               ->orwhere('model', '=', request('model'))
-                               ->orwhere('price', '<', request('maxPrice'))->get();
-        
-            return view('cars/showAll')->with("allCars", $matchingCars)
-                                       ->with("allImages", $allImages)
-                                       ->with("errMessage", $logMessage);
+            
+            if (count($checkBrands)>0 || count($checkModels)>0 || count($checkPrice)>0) {
+                
+                //Der Gesamtfilter hat kein Match gefunden, ähnliche Ergebnisse returnen:
+                $matchingCars = Car::where('brand', '=', request('brand'))
+                                   ->orwhere('model', '=', request('model'))
+                                   ->orwhere('price', '<', request('maxPrice'))->get();
+                
+                return view('cars/showAll')->with("allCars", $matchingCars)
+                                           ->with("allImages", $allImages)
+                                           ->with("errMessage", $logMessage);
+            } else {
+                return view('showErrors')->with("logMessage", $logMessage);
+            }
+
         } else {
 
             return view('cars/showAll')->with("allCars", $matchingCars)

@@ -12,9 +12,9 @@
 
             @include('layouts.partials.sidenav')
 
-            @yield('content')
-
         </div>
+        
+        @yield('content')
     </div>
 
     @include('layouts.partials.footer')
