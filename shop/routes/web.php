@@ -29,9 +29,6 @@
 //e.g. /register | /login | password/reset ...
 Auth::routes();
 
-//Route::get('/home', 'HomeController@index');
-
-
 Route::get('home', function () { return view('filter'); });
 //Route::get('login',function () { return view('auth/login'); });
 Route::post('login/post', 'Auth/LoginController@authenticate');
@@ -41,17 +38,21 @@ Route::get('/', function () { return view('filter'); });
 
 Route::get('logout', function () {
     Auth::logout();
-    return view('logout');
+    return view('auth/logout');
 })->middleware("auth");
 
 /*--Main--------------------------------------*/
 
-Route::get('cars/show',             'CarController@show');
-Route::get('cars/create',           'CarController@create')->middleware("auth");
-Route::get('cars/showAll',          'CarController@showAll');
-Route::get('cars/showbyid/{id}',    'CarController@showById')->middleware("auth");
-Route::post('post_filter',          'CarController@filter')->middleware("auth");
-Route::post('cars/store',           'CarController@store')->middleware("auth");
+Route::get('car/show',             'CarController@show');
+Route::get('car/create',           'CarController@create')->middleware("auth");
+Route::get('car/showAll',          'CarController@showAll');
+Route::get('car/showbyid/{id}',    'CarController@showById')->middleware("auth");
+Route::post('post_filter',         'CarController@filter')->middleware("auth");
+Route::post('car/store',           'CarController@store')->middleware("auth");
+
+
+Route::get('user/showAll',         'UserController@showAll')->middleware("auth");
+Route::get('user/showAccount',     'UserController@showAccount')->middleware("auth");
 
 /*--Footer--------------------------------------*/
 Route::get('impressum',            function () { return view('footer.impressum'); })->middleware("auth");;

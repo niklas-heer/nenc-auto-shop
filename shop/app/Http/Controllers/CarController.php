@@ -18,12 +18,12 @@ class CarController extends Controller
         
     public function create()
     {
-        return view('cars.create');
+        return view('models.car.create');
     }
     
     public function show()
     {
-        return view('cars.index');
+        return view('models.car.index');
     }
     
     /**
@@ -37,22 +37,9 @@ class CarController extends Controller
         $allImages = Image::all();
         $car = Car::find($id);
         
-        return view('cars.show')
+        return view('show.show')
                 ->with("car", $car)
                 ->with("allImages", $allImages);
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int $title
-     * @return \Illuminate\Http\Response
-     */
-    public function showByTitle($title)
-    {
-        $car = Car::where('title', '=', $title)->get();
-
-        return view('car.showByTitle')->with("car", $car);
     }
 
     /**
@@ -125,18 +112,18 @@ class CarController extends Controller
                                    ->orwhere('model', '=', request('model'))
                                    ->orwhere('price', '<', request('maxPrice'))->get();
                 
-                return view('cars/showAll')->with("allCars", $matchingCars)
+                return view('show/showAll')->with("allCars", $matchingCars)
                                            ->with("allImages", $allImages)
                                            ->with("errMessage", $logMessage);
                 
             //Kein Suchkriterium hat übereingestimmt
             } else {
-                return view('showErrors')->with("logMessage", $logMessage);
+                return view('show/showErrors')->with("logMessage", $logMessage);
             }
 
         } else {
 
-            return view('cars/showAll')->with("allCars", $matchingCars)
+            return view('show/showAll')->with("allCars", $matchingCars)
                                        ->with("allImages", $allImages)
                                        ->with("logMessage", $logMessage);
         }
@@ -153,7 +140,7 @@ class CarController extends Controller
         $allCars = Car::all();
         $allImages = Image::all();
 
-        return view('cars.showAll')
+        return view('show.showAll')
             ->with("allCars", $allCars)
             ->with("allImages", $allImages);
     }
@@ -181,6 +168,7 @@ class CarController extends Controller
         $car->price = request('price');
         $car->brand = request('brand');
         $car->model = request('model');
+        $car->user_id = Auth()->user()->id;     //Benutzer ID speichern, für spätere Zuordnung wichtig.
 
         $car->save();
 
@@ -193,9 +181,7 @@ class CarController extends Controller
             endforeach;
         endif;
 
-        return redirect('cars/showAll')
-            ->with("allCars", $allCars)
-            ->with("images", $allImages);
+        return redirect('car/showAll');
     }
     
     

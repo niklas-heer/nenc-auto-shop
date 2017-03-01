@@ -3,7 +3,7 @@
 @section('content')
 
     <div class="createContainer">
-        <form id="store" class="marginTop" method="POST" action="store" enctype="multipart/form-data">
+        <form id="store" class="marginTop" method="POST" action="car/store" enctype="multipart/form-data">
 
             {{ csrf_field() }}
 

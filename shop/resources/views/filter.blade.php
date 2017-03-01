@@ -41,6 +41,14 @@
                         </div>
                     </td>
                 </tr>
+<!--                <tr>
+                    <td>
+                        <div class="form-group">
+                            <label for="power" class="control-label">KW</label>
+                            <input type="text" class="form-control" id="power" name="maxPrice">
+                        </div>
+                    </td>
+                </tr>-->
                 <tr>
                     <td class="SubmitButton" colspan="3">
                         <button type="submit" class="btn btn-default">Filtern</button>
