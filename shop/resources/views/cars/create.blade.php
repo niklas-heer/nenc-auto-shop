@@ -22,24 +22,20 @@
             <div class="form-group">
                 <label for="brand" class="control-label">Marke</label>
                 <select class="form-control" id="brand" name="brand">
-                <option value='Audi'>Audi</option>
+                    <option value='Audi'>Audi</option>
                     <option value='BMW'>BMW</option>
-                    <option value='Honda'>Honda</option>
-                    <option value='Mazda'>Mazda</option>
                     <option value='Mercedes-Benz'>Mercedes-Benz</option>
-                    <option value='Mitsubishi'>Mitsubishi</option>
-                    <option value='Nissan'>Nissan</option>
                     <option value='Opel'>Opel</option>
                     <option value='Porsche'>Porsche</option>
-                    <option value='Tesla'>Tesla</option>
-                    <option value='Toyota'>Toyota</option>
                     <option value='Volkswagen'>Volkswagen</option>
-                    <option value='Volvo'>Volvo</option>
                 </select>
             </div>
             <div class="form-group">
                 <label for="model" class="control-label">Model</label>
-                <input type="text" class="form-control" id="model" name="model" value="">
+                <!--<input type="text" class="form-control" id="model" name="model" value="">-->
+                <select class="form-control" id="model" name="model">
+
+                </select>
             </div>
             <br>
             <div class="form-group">
