@@ -3,7 +3,10 @@
     <button class="closebtn" onclick="closeNav()">
         <i class="fa fa-window-close" aria-hidden="true"></i>
     </button>
-
+    @if(Auth::check())
+    <a href="#todo"><i class="fa fa-id-card"></i>&nbsp;{{Auth()->user()->name}}</a>
+    @endif
+    
     <a href='{{ url('/cars/showAll') }}'>Inserate</a>
     
     @if(Auth::check())

@@ -418,6 +418,7 @@ h3{
 
  /* The side navigation menu */
 .sidenav {
+    color: white;
     margin-top: 60px;
     height: 100%;
     width: 0;
