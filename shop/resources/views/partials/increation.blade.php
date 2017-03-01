@@ -10,7 +10,7 @@
         timer = timer - 1;
         document.getElementById("zeit").innerHTML = timer;
 
-        if (timer === 0) window.location.href = "home";
+        if (timer === 0) window.location.href="home";
 
     }, 1000);
 

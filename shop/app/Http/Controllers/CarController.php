@@ -7,7 +7,6 @@ use Illuminate\Support\Facades\DB;
 
 use Input;
 use Redirect;
-use Session;
 
 
 use App\Car;
@@ -171,9 +170,10 @@ class CarController extends Controller
             'description' => 'required|min:10',
             'price' => 'required|numeric',
             'brand' => 'required|regex:/^[\pL\s\-]+$/u',    //only allows letters, hyphens and spaces explicitly
-            'model' => 'required|regex:/^[\pL\s\-]+$/u',    //only allows letters, hyphens and spaces explicitly
+            'model' => 'required|regex:/^[\pL\s\-\d]+$/u',    //only allows letters, numbers, hyphens and spaces explicitly
+            'image' => 'required|array'
         ]);
-
+        
         $car = new Car();
 
         $car->title = request('title');
