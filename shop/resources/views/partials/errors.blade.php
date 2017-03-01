@@ -1,5 +1,5 @@
 @if(count($errors))
-    <center><p>Diese Seite wird in <span id="zeit">5</span> neu geladen.</p></center>
+    <center><p>Diese Seite wird in <span id="zeit">3</span> neu geladen.</p></center>
     
     <div class="form-group">
         <div class="alert alert-danger" role="alert">
@@ -11,13 +11,16 @@
         </div>
     </div>
     <script>
-        var timer = 5;
+        var timer = 3;
 
-        setInterval(function () {
+        var thisInterval = setInterval(function () {
             timer = timer - 1;
             document.getElementById("zeit").innerHTML = timer;
 
-            if (timer === 0) window.location.href='/nenc-auto-shop/shop/public/cars/create';
+            if (timer === 0) {
+                clearInterval(thisInterval);
+                window.location.reload();
+            }
 
         }, 1000);
 
