@@ -2,21 +2,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    @include('layouts.partials.head')
+    @include('partials.head')
 </head>
 <body>
-    @include('layouts.partials.headerLogin')
+    @include('partials.headerLogin')
     
     <div class="jumbotron main">
         <div class='container'>
 
-            @include('layouts.partials.sidenav')
+            @include('partials.sidenav')
 
             @yield('content')
 
         </div>
     </div>
 
-    @include('layouts.partials.footer')
-    @include('layouts.partials.foot')
+    @include('partials.footer')
+    @include('partials.foot')
 </body>

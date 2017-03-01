@@ -14,21 +14,15 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href='{{ url('/home') }}'>nenc auto shop</a>
+            <a class="navbar-brand" href='{{ url('/') }}'>nenc auto shop</a>
         </div>
         <div id="MenuHide" onClick="openNav();" class="MenuHide">
             <img class="MenuHideIcon" src="{{ URL::asset("img/menu.png") }}">
         </div>
         <div id="navbar" class="navbar-collapse collapse">
-            <form class="navbar-form navbar-right">
-                <div class="form-group">
-                    <input type="text" placeholder="Email" class="form-control">
-                </div>
-                <div class="form-group">
-                    <input type="password" placeholder="Password" class="form-control">
-                </div>
-                <button type="submit" class="btn btn-success">Sign in</button>
-            </form>
-        </div><!--/.navbar-collapse -->
+            <div class="navbar-form navbar-right">
+                <button type="button" onclick="window.location.href='{{route('login')}}'" class="btn btn-success">Login</button>
+            </div>
+        </div>
     </div>
 </nav>

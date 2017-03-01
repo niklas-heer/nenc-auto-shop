@@ -2,7 +2,7 @@
 
 @section('content')
 
-    @include('layouts.partials.errors')
+    @include('partials.errors')
     
     <div class="container FilterContainer">
 

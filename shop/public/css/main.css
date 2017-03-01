@@ -114,7 +114,7 @@ table.details tr td:nth-child(odd) {
 /*-Login-----------------*/
 .navbar-form {
     margin-top: 8px;
-    margin-right: 100px;
+    margin-right: 20px;
     margin-bottom: 8px;
     margin-left: -15px;
     border-top: 1px solid transparent;
@@ -130,7 +130,7 @@ table.details tr td:nth-child(odd) {
         width: auto;
         padding-top: 0;
         padding-bottom: 0;
-        margin-right: 380px;
+        margin-right: 180px;
         margin-left: 0;
         border: 0;
         -webkit-box-shadow: none;
