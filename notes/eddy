@@ -1,6 +1,3 @@
-26.02.2017:
-	- Einige Seiten responsive gemacht
-	
 25.02.2017:
 	- Image Upload Funktion erstellt
 	- ShowAll View erstellt
@@ -9,6 +6,11 @@
 	- FontAwesome und BlueImp zum Projekt hinzugefügt
 	- Image Upload verbessert, es können mehrere Bilder hochgeladen werden.
 	- Filter Funktion erstellt
+	- Login Funktion
+	- Registrier Funktion
+	- Logout Funktion
+	- Einige Seiten responsive gemacht
+	
 
 2017-02-17:
 	- Validierung
