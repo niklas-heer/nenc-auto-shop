@@ -591,7 +591,7 @@ $(document).ready(function() {
     
     $("#brand").change(function(){
         
-        var brand = $( "#brand option:selected" ).text();
+        var brand = $( "#brand option:selected" ).val();
 		var myOptions=null;
         
         switch (brand) {
