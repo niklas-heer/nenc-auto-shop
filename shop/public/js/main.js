@@ -592,6 +592,7 @@ $(document).ready(function() {
     $("#brand").change(function(){
         
         var brand = $( "#brand option:selected" ).text();
+		var myOptions=null;
         
         switch (brand) {
             case "Audi":
@@ -616,14 +617,16 @@ $(document).ready(function() {
                 console.warn("Fehler! Default Case Switch statement (main.js)");
         }
         
-        //Alle options aus der Selekt Box löschen.
-        $( "#model" ).empty();
-        
-        //Selekt Box mit Optionen initialisieren
-        $.each(myOptions, function(val, text) {
-            $( "#model" ).append(
-                $('<option></option>').val(val).html(text)
-            );
-        });
+		if (myOptions !== null) {
+			//Alle options aus der Selekt Box löschen.
+			$( "#model" ).empty();
+			
+			//Selekt Box mit Optionen initialisieren
+			$.each(myOptions, function(val, text) {
+				$( "#model" ).append(
+					$('<option></option>').val(val).html(text)
+				);
+			});
+		}
     });
 });
