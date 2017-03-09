@@ -1,3 +1,16 @@
+24.02.2017:
+    - Server aufsetzen
+        - PHP7 installieren und einrichten
+        - MariaDB Server installieren und einrichten
+        - DNS-Record für die Subdomain erstellen
+        - Caddyfile für die Subdomain erstellen
+        - Einrichten eines Webhooks auf Github
+        - Einrichten eines Webhook-Endpoints auf der Seite des Webservers
+        - Erstellen eins Skripts zum automatischen ziehen von Abhägigkeiten der Software
+        - Erstellen eines Skripts zum automatischen ausrollen des Datenbankschemas
+        - Anpassen der Applikation für MariaDB
+        - Anpassung des Chachingverhaltens zur sofortigen Sichtbarkeit von Änderungen
+
 2017-02-17:
 	- Formular vervollständigen
 	- Speicherung der Daten aus dem Formular ermöglichen
