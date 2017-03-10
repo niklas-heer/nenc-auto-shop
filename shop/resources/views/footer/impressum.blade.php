@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="container">
+<div class="containerFooter">
     <h1>Impressum</h1>
     <div class="gridSpan6 ">
     <a name="au.company.imprint.AS24"></a><h1 class="fontHeadlineCorporate paddingBottomFontM">NENC GmbH</h1><p>Fegelein 
