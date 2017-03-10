@@ -60,3 +60,13 @@ Route::get('datenschutz',          function () { return view('footer.datenschutz
 Route::get('haftungsausschluss',   function () { return view('footer.haftungsausschluss'); });
 Route::get('agb',                  function () { return view('footer.agb'); });
 Route::get('kontakt',              function () { return view('footer.kontakt'); });
+
+/*--Test--------------------------------------*/
+Route::get('/sparkpost', function () {
+    Mail::send('emails.test', [], function ($message) {
+        $message
+            ->from('noreply@nenc.we-host.de', 'NENC')
+      ->to('niklas.heer@gmail.com', 'Niklas')
+      ->subject('From SparkPost with ❤');
+  });
+});
