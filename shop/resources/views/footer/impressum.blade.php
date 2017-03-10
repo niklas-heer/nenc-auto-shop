@@ -5,10 +5,10 @@
 <div class="container">
     <h1>Impressum</h1>
     <div class="gridSpan6 ">
-    <a name="au.company.imprint.AS24"></a><h1 class="fontHeadlineCorporate paddingBottomFontM">AutoScout24 GmbH</h1><p>Dingolfinger 
+    <a name="au.company.imprint.AS24"></a><h1 class="fontHeadlineCorporate paddingBottomFontM">NENC GmbH</h1><p>Fegelein 
     Str. 
     1-15<br>D-81673 
-    München</p><p>HRB 
+    Ansbach</p><p>HRB 
     NR: 128701, AG München, <br>UST-ID Nr.: DE 207 254 100<br><a href="mailto:info@autoscout24.de">info@autoscout24.de</a> 
     </p><p>Tel: 089&nbsp;444&nbsp;56&nbsp;1666</p><p>Sie 
     erreichen uns innerhalb unserer Geschäftszeiten <br>von Montag bis Freitag in der Zeit von 
