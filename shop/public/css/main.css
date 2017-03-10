@@ -4,6 +4,13 @@
     margin-right: auto;
 }
 
+.containerFooter {
+    width: 1820px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 11px;
+}
+
 .innerContainer {
     padding-left: 6%;
 }
