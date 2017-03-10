@@ -26,9 +26,11 @@
                             <h4 class="carTitle">{{ $car->title }}</h4>
                         </div>
                         <div class="col-xs-1">
+                            <!--
                             <center>
                                 <i class="fa fa-window-close close" aria-hidden="true"></i>
                             </center>
+                            -->
                         </div>
                     </div>
 
