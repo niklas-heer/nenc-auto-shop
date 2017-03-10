@@ -55,7 +55,7 @@ Route::get('user/showAll',         'UserController@showAll')->middleware("auth")
 Route::get('user/showAccount',     'UserController@showAccount')->middleware("auth");
 
 /*--Footer--------------------------------------*/
-Route::get('impressum',            function () { return view('footer.impressum'); })->middleware("auth");;
+Route::get('impressum',            function () { return view('footer.impressum'); });
 Route::get('datenschutz',          function () { return view('footer.datenschutz'); });
 Route::get('haftungsausschluss',   function () { return view('footer.haftungsausschluss'); });
 Route::get('agb',                  function () { return view('footer.agb'); });
