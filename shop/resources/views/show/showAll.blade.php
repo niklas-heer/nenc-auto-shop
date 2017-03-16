@@ -21,17 +21,18 @@
             @foreach($allCars as $car)
 
                 <div class="carObject" id="carObject{{ $car->id }}">
-                    <div class="col-xs-12 row carTitleWrap">
+                    <div class="col-sm-12 row carTitleWrap">
                         
                         @if( isset($showDelete) && $showDelete == 1)
-                            <div class="col-xs-11">
+                            <div class="col-xs-10">
                                 <h4 class="carTitle">{{ $car->title }}</h4>
                             </div>
 
-                            <div class="col-xs-1 deleteAreYouSure" link="{{ url('/car/delete/' . $car->id) }}">
-                                <center>
-                                    <i class="fa fa-window-close close" aria-hidden="true"></i>
-                                </center>
+                            <div class="col-xs-1 deleteAreYouSure">
+                                <center><i class="fa fa-window-close close" aria-hidden="true" link="{{ url('/car/delete/' . $car->id) }}"></i></center>
+                            </div>
+                            <div class="col-xs-1">
+                                <center><i class="fa fa-pencil-square-o edit" aria-hidden="true" onclick="window.location.href='{{ url('/car/edit/' . $car->id) }}'"></i></center>
                             </div>
                         @else
                             <div class="col-xs-12">

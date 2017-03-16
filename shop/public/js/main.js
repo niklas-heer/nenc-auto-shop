@@ -581,18 +581,19 @@ $(document).ready(function() {
         'Vento' : 'Vento',
         'XL1' : 'XL1'
     };
-        
+    
+
     $.each(Audi, function(val, text) {
         $( "#model" ).append(
             $('<option></option>').val(val).html(text)
         );
     });
 
-    
+        
     $("#brand").change(function(){
         
         var brand = $( "#brand option:selected" ).val();
-		var myOptions=null;
+	var myOptions=null;
         
         switch (brand) {
             case "Audi":
@@ -634,11 +635,11 @@ $(document).ready(function() {
     $(".deleteAreYouSure").click(function(event){
         event.preventDefault();
         
-        var link = $(this).attr("link");
+        var link = $(this).find("i").attr("link");
         
-        if (confirm("Sind Sie sicher dass Sie dieses Inserat löschen möchten?")) {
+        if (confirm("Sind Sie sicher das Sie dies löschen möchten?")) {
             window.location.href = link;
         }
-    })
+    });
     
 });

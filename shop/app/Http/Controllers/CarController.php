@@ -204,5 +204,63 @@ class CarController extends Controller
         return redirect('car/showAll');
     }
     
+    /**
+     * Update car model
+     * 
+     * @param int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update($id)
+    {
+        $request = new Request;
+                
+        $this->validate(request(), [
+            'title' => 'required|max:80',
+            'description' => 'required|min:10',
+            'price' => 'required|numeric'
+        ]);
+        
+        $car = Car::find($id);
+
+        $car->title = request('title');
+        $car->description = request('description');
+        $car->price = request('price');
+
+        $car->save();
+
+        $allCars = Car::all();
+        $allImages = $request->file('image');
+
+        if (!empty($allImages)):
+            foreach ($allImages as $image):
+                $image = $this->upload($image, $car->id);
+            endforeach;
+        endif;
+
+        $allCars = Car::where('user_id', '=', Auth()->user()->id)->get();
+        $allImages = Image::all();
+
+        return view('show.showAll') ->with("allCars", $allCars)
+                                    ->with("allImages", $allImages)
+                                    ->with("showDelete", "1");
+    }
+    
+    /**
+     * Show edit form
+     * 
+     * @param int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        $car = Car::find($id);
+        $allImages = Image::where('car_id', '=', $id)->get();
+
+        
+        return view('models/car/update')->with("car", $car)
+                                        ->with('allImages', $allImages);
+    }
+    
+    
     
 }

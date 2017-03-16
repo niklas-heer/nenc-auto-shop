@@ -41,11 +41,23 @@
     margin-top: 75px;
 }
 
+.car_image {
+    display: inline;
+    min-height: 400px;
+}
+
+.carObjectEdit {
+    border: 2px solid #ffdbdb;
+    min-width: 300px;
+    width: 380px;
+}
+
 .carTitleWrap {
     font-family: fantasy;
     padding-top: 0px;
     padding-left: 0px;
     margin-left: 18px;
+    height: 24px;
     /*min-height:40px;*/
 }
 
@@ -61,6 +73,15 @@
 
 }
     .close:hover {
+        color: red;
+    }
+.edit {
+    position: absolute;
+    margin-right:4px;
+    margin-top:4px;
+}
+    .edit:hover {
+        cursor:pointer;
         color: red;
     }
 
