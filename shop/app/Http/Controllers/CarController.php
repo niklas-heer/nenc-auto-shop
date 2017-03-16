@@ -210,14 +210,14 @@ class CarController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function update($id)
+    public function update($id, Request $request)
     {
-        $request = new Request;
-                
+
         $this->validate(request(), [
             'title' => 'required|max:80',
             'description' => 'required|min:10',
-            'price' => 'required|numeric'
+            'price' => 'required|numeric',
+            'image' => 'array'
         ]);
         
         $car = Car::find($id);

@@ -38,6 +38,8 @@
                 </select>
             </div>
             <br>
+            
+            <b>Fotos hochladen:</b>
             <div class="form-group">
                 <input type="file" name="image[]" multiple>
             </div>

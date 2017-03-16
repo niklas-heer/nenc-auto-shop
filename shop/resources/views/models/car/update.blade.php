@@ -21,6 +21,11 @@
             </div>
             <br>
             
+            <b>Fotos hochladen:</b>
+            <div class="form-group">
+                <input type="file" name="image[]" multiple>
+            </div>
+            
             <div class="form-group">
                 <button type="submit" class="btn btn-default">Senden</button>
             </div>
