@@ -7,8 +7,8 @@
 
             <div class="FooterButtonWrap">
                 <a class="FooterButton animatedLink" href='{{ url('/impressum') }}'>Impressum</a>
-<!--                <a class="FooterButton animatedLink" href='{{ url('/datenschutz') }}'>Datenschutz</a>
-                <a class="FooterButton animatedLink" href='{{ url('/haftungsausschluss') }}'>Haftungsausschluss</a>-->
+                <a class="FooterButton animatedLink" href='{{ url('/datenschutz') }}'>Datenschutz</a>
+                <a class="FooterButton animatedLink" href='{{ url('/haftungsausschluss') }}'>Haftungsausschluss</a>
                 <a class="FooterButton animatedLink" href='{{ url('/agb') }}'>AGB</a>
                 <a class="FooterButton animatedLink" href='{{ url('/kontakt') }}'>Kontakt</a>
             </div>

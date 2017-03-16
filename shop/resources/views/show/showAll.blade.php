@@ -108,6 +108,8 @@
                 </script>
 
             @endforeach
+        @else
+            <center>Es sind noch keine Inserate vorhanden.</center>
         @endif
     </div>
 </div>
