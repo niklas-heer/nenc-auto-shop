@@ -617,16 +617,28 @@ $(document).ready(function() {
                 console.warn("Fehler! Default Case Switch statement (main.js)");
         }
         
-		if (myOptions !== null) {
-			//Alle options aus der Selekt Box löschen.
-			$( "#model" ).empty();
-			
-			//Selekt Box mit Optionen initialisieren
-			$.each(myOptions, function(val, text) {
-				$( "#model" ).append(
-					$('<option></option>').val(val).html(text)
-				);
-			});
-		}
+        if (myOptions !== null) {
+            //Alle options aus der Selekt Box löschen.
+            $( "#model" ).empty();
+
+            //Selekt Box mit Optionen initialisieren
+            $.each(myOptions, function(val, text) {
+                $( "#model" ).append(
+                    $('<option></option>').val(val).html(text)
+                );
+            });
+        }
     });
+    
+    
+    $(".deleteAreYouSure").click(function(event){
+        event.preventDefault();
+        
+        var link = $(this).attr("link");
+        
+        if (confirm("Sind Sie sicher dass Sie dieses Inserat löschen möchten?")) {
+            window.location.href = link;
+        }
+    })
+    
 });

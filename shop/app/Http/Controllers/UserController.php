@@ -24,9 +24,9 @@ class UserController extends Controller
         $allCars = Car::where('user_id', '=', Auth()->user()->id)->get();
         $allImages = Image::all();
 
-        return view('show.showAll')
-            ->with("allCars", $allCars)
-            ->with("allImages", $allImages);
+        return view('show.showAll') ->with("allCars", $allCars)
+                                    ->with("allImages", $allImages)
+                                    ->with("showDelete", "1");
     }
     
     /**

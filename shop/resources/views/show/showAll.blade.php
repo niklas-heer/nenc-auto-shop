@@ -13,7 +13,7 @@
 
             @if(isset($errMessage))
                 <center><p>{!! $errMessage !!} </p></center>
-                <center><button onclick="window.location.href='home'">Erneut versuchen</button></center>
+                <center><button onclick="{{ url('/home') }}">Erneut versuchen</button></center>
                 <br>
                 <center><p>Folgende Fahrzeuge haben einigen Ihrer Suchkriterien entsprochen:</p></center>
             @endif
@@ -22,16 +22,23 @@
 
                 <div class="carObject" id="carObject{{ $car->id }}">
                     <div class="col-xs-12 row carTitleWrap">
-                        <div class="col-xs-11">
-                            <h4 class="carTitle">{{ $car->title }}</h4>
-                        </div>
-                        <div class="col-xs-1">
-                            <!--
-                            <center>
-                                <i class="fa fa-window-close close" aria-hidden="true"></i>
-                            </center>
-                            -->
-                        </div>
+                        
+                        @if( isset($showDelete) && $showDelete == 1)
+                            <div class="col-xs-11">
+                                <h4 class="carTitle">{{ $car->title }}</h4>
+                            </div>
+
+                            <div class="col-xs-1 deleteAreYouSure" link="{{ url('/car/delete/' . $car->id) }}">
+                                <center>
+                                    <i class="fa fa-window-close close" aria-hidden="true"></i>
+                                </center>
+                            </div>
+                        @else
+                            <div class="col-xs-12">
+                                <h4 class="carTitle">{{ $car->title }}</h4>
+                            </div>
+                        @endif
+   
                     </div>
 
                     <div class='imagesWrap'>
@@ -50,7 +57,7 @@
                             <div id="links_{{ $car->id }}">
                                 @foreach($allImages as $image)
                                     @if ($car->id === $image->car_id)
-                                        <a href="/nenc-auto-shop/shop/public/{{ $image->path }}"></a>
+                                        <a href="{{ url('/'.$image->path) }}"></a>
                                     @endif
                                 @endforeach
                             </div>

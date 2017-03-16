@@ -20,9 +20,11 @@
             <img class="MenuHideIcon" src="{{ URL::asset("img/menu.png") }}">
         </div>
         <div id="navbar" class="navbar-collapse collapse">
-            <div class="navbar-form navbar-right">
-                <button type="button" onclick="window.location.href='{{route('login')}}'" class="btn btn-success">Login</button>
-            </div>
+            @if(Auth::check() == false)
+                <div class="navbar-form navbar-right">
+                    <button type="button" onclick="window.location.href='{{route('login')}}'" class="btn btn-success">Login</button>
+                </div>
+            @endif
         </div>
     </div>
 </nav>

@@ -27,6 +27,26 @@ class CarController extends Controller
     }
     
     /**
+     * Delete model with specific ID.
+     *
+     * @param  int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function delete($id)
+    {
+        $allImagesFromCar = Image::where('car_id', '=', $id)->get();
+        $car = Car::find($id);
+        
+        foreach($allImagesFromCar as $image) {
+            $image->delete();
+        }
+        
+        $car->delete();
+        
+        return redirect()->back();
+    }
+    
+    /**
      * Display model with specific ID.
      *
      * @param  int $id

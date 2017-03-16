@@ -47,8 +47,12 @@ Route::get('car/show',             'CarController@show');
 Route::get('car/create',           'CarController@create')->middleware("auth");
 Route::get('car/showAll',          'CarController@showAll');
 Route::get('car/showbyid/{id}',    'CarController@showById')->middleware("auth");
+
+Route::get('car/delete/{id}',      'CarController@delete')->middleware("auth");
+
 Route::post('post_filter',         'CarController@filter')->middleware("auth");
 Route::post('car/store',           'CarController@store')->middleware("auth");
+
 
 
 Route::get('user/showAll',         'UserController@showAll')->middleware("auth");
