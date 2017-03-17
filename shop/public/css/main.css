@@ -102,6 +102,8 @@
 
 p.detailsDescription {
     margin-bottom: 0px;
+    max-height: 100px;
+    overflow-y: scroll;
 }
 
 table.details tr td {
